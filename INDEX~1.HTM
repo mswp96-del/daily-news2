@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 뉴스</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  background: #f6f7f9; color: #1a1a1a; line-height: 1.5; padding: 24px 16px 48px;
+}
+.wrap { max-width: 880px; margin: 0 auto; }
+header.top { text-align: center; margin-bottom: 8px; }
+header.top h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+header.top .date { color: #6b7280; font-size: 14px; margin-top: 6px; }
+header.top .sub { color: #9ca3af; font-size: 12px; margin-top: 2px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0 24px; }
+.chip {
+  border: 1px solid #e2e5ea; background: #fff; color: #374151; font-size: 13px; font-weight: 600;
+  padding: 7px 14px; border-radius: 999px; cursor: pointer; transition: all .15s;
+}
+.chip:hover { border-color: #c7ccd4; }
+.chip.active { color: #fff; border-color: transparent; }
+.sector { margin-bottom: 26px; }
+.sector-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.dot { width: 12px; height: 12px; border-radius: 4px; }
+.sector-head h2 { font-size: 18px; font-weight: 700; }
+.sector-head .en { color: #9ca3af; font-size: 12px; font-weight: 500; }
+.card {
+  background: #fff; border: 1px solid #edeff2; border-radius: 14px; padding: 16px 18px;
+  margin-bottom: 10px; box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+.card .headline { font-size: 15.5px; font-weight: 700; margin-bottom: 6px; color: #111827; }
+.card .body { font-size: 14px; color: #4b5563; }
+.card .meta { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.card a.src {
+  font-size: 12px; font-weight: 600; text-decoration: none; color: #2563eb;
+  background: #eff4ff; padding: 3px 10px; border-radius: 999px;
+}
+.card a.yt {
+  font-size: 12px; font-weight: 600; text-decoration: none; color: #b91c1c;
+  background: #fdecec; padding: 3px 10px; border-radius: 999px;
+}
+footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; }
+.hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>📰 오늘의 뉴스</h1>
+    <div class="date" id="date">2026년 7월 8일 (수)</div>
+    <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육</div>
+  </header>
+
+  <div class="filters" id="filters"></div>
+  <div id="content"></div>
+
+  <footer>뉴스·유튜브 검색 기반 요약 · 자세한 내용은 각 출처 링크를 확인하세요.</footer>
+</div>
+
+<script>
+const SECTORS = [
+  { key:"youth", name:"청소년", en:"Youth", color:"#f59e0b",
+    items:[
+      { h:"세계 20여개국 장관 부산 집결…청소년 문제 해법 모색", b:"국제청소년연합(IYF)이 7월 15일 부산 누리마루에서 제14회 세계장관포럼을 연다. 20여 개국 청소년·교육 담당 장관이 모여 각국 정책 경험을 공유하며, 7월 12~19일 열리는 2026 IYF 월드캠프의 핵심 프로그램이다.",
+        src:"https://www.dongponews.net/news/articleView.html?idxno=59118", srcName:"재외동포신문", yt:"https://www.youtube.com/results?search_query=IYF+세계장관포럼+청소년" },
+      { h:"2026 한경 청소년 경제체험대회 개최", b:"한국경제신문사가 여름방학에 교사와 학생이 팀을 이뤄 참여하는 청소년 경제 체험대회를 연다. 실물 경제를 직접 경험하며 금융·경제 이해력을 키우는 프로그램이다.",
+        src:"https://www.hankyung.com/amp/2026062824131", srcName:"한국경제", yt:"https://www.youtube.com/results?search_query=한경+청소년+경제체험대회" }
+    ]},
+  { key:"ai", name:"AI", en:"인공지능", color:"#8b5cf6",
+    items:[
+      { h:"중국 Z.ai, 'GLM-5.2' 오픈웨이트로 전격 공개", b:"미국이 사이버 공격 능력을 이유로 앤스로픽 모델 접근을 제한한 지 수 주 만에, 베이징 Z.ai가 GLM-5.2를 공개했다. 사용자가 가중치를 내려받아 자체 서버에서 실행·수정·추가학습할 수 있는 오픈웨이트 방식이다.",
+        src:"https://www.radioseoul1650.com/archives/146120", srcName:"Radio Seoul", yt:"https://www.youtube.com/results?search_query=GLM-5.2+오픈웨이트+중국+AI" },
+      { h:"중국 딥시크, 추론 특화 자체 AI 칩 개발 착수", b:"딥시크가 약 1년 전 시작한 추론용 자체 AI 칩 개발에 속도를 내고 있다. 반도체 인력 채용을 확대하며, 엔비디아·화웨이 칩 의존도를 줄이고 기술 자립을 강화하는 전략이다.",
+        src:"https://www.sptatimeskorea.com/post/%EC%A0%9C20260707-tt-01%ED%98%B8-2026%EB%85%84-7%EC%9B%94-7%EC%9D%BC-%EB%B0%98%EB%8F%84%EC%B2%B4-%EA%B8%B0%EC%88%A0-%EA%B4%80%EB%A0%A8-%EC%A3%BC%EC%9A%94-%EB%89%B4%EC%8A%A4-%EC%9A%94%EC%95%BD", srcName:"SPTA 타임스", yt:"https://www.youtube.com/results?search_query=딥시크+AI+칩+개발" }
+    ]},
+  { key:"science", name:"과학", en:"Science", color:"#0ea5e9",
+    items:[
+      { h:"JWST, '가장 먼 막대 나선 은하' 발견…표준 우주론 흔들다", b:"제임스 웹 우주망원경이 관측한 은하 M1149-BSG-z5가 지금까지 관측된 것 중 가장 먼 막대 나선 은하로 확인됐다. 빅뱅 이후 조직화된 은하가 형성될 수 있는 시기에 대한 기존 이해를 앞당기는 성과다.",
+        src:"https://www.newsspace.kr/news/article.html?no=14641", srcName:"뉴스스페이스", yt:"https://www.youtube.com/results?search_query=JWST+막대+나선+은하+발견" },
+      { h:"'AI 과학자' 시대…독립적 발견 주도", b:"AI가 가설을 직접 생성하고 실험을 설계하는 과학자로 진화하고 있다. Argonne 국립연구소는 5~8년 걸릴 배터리 실험 6,000건을 5개월 만에 완료하며 연구 속도를 획기적으로 단축했다.",
+        src:"https://www.giprism.com/news/articleView.html?idxno=11813", srcName:"시사프리즘", yt:"https://www.youtube.com/results?search_query=AI+과학자+자동+발견" }
+    ]},
+  { key:"economy", name:"경제", en:"Economy", color:"#10b981",
+    items:[
+      { h:"6월 소비자물가 3.2%↑…소비자심리 106.6으로 개선", b:"6월 소비자물가지수가 전년동월대비 3.2% 상승했다. 소비자심리지수(CCSI)는 106.6으로 전월보다 0.5p 올랐고, 제조업 기업심리지수도 101.2로 소폭 상승했다.",
+        src:"https://www.bok.or.kr/portal/main/main.do", srcName:"한국은행", yt:"https://www.youtube.com/results?search_query=소비자물가+소비자심리+2026" },
+      { h:"7월 고용·산업활동 등 주요 통계 잇단 발표", b:"7월 9일 국제인구이동통계, 15일 6월 고용동향, 31일 6월 산업활동동향이 공표된다. 한편 2025년 증권투자는 1,403억달러로 2024년의 2배를 넘어 해외투자가 가파르게 늘고 있다.",
+        src:"https://mods.go.kr/", srcName:"국가데이터처", yt:"https://www.youtube.com/results?search_query=6월+고용동향+2026" }
+    ]},
+  { key:"world", name:"국제", en:"World", color:"#ef4444",
+    items:[
+      { h:"미국 독립 250주년…뉴욕항 국제관함식·범선 퍼레이드", b:"미국 독립 250주년을 맞아 4일 뉴욕항에서 미국과 주요 동맹국 해군 함정이 참가하는 국제관함식과 대형 범선 퍼레이드가 펼쳐졌다. 달러의 국제적 위상도 다시 주목받고 있다.",
+        src:"https://www.new1cm.com/2026/07/2026-07-06.html", srcName:"해외뉴스 요약", yt:"https://www.youtube.com/results?search_query=미국+독립+250주년+국제관함식" },
+      { h:"프랑스 남부 산불…주민 1만여 명 긴급 대피", b:"프랑스 남부 트레비야슈에서 발생한 산불로 스페인 국경 인근 마을 주민 1만 명 이상이 긴급 대피했다. 유럽 남부의 이른 폭염과 건조한 날씨가 산불 위험을 키우고 있다.",
+        src:"https://www.new1cm.com/2026/07/2026-07-07.html", srcName:"해외뉴스 요약", yt:"https://www.youtube.com/results?search_query=프랑스+남부+산불+대피" }
+    ]},
+  { key:"education", name:"교육", en:"Education", color:"#ec4899",
+    items:[
+      { h:"교육부, AI 디지털 교과서 원년…'K-교육 AI' 확산", b:"2026년 교육부 업무계획에 따라 AI 디지털 교과서가 교실에 본격 도입된다. 교육 특화 생성형 AI인 'K-교육 AI'를 일상 수업에 활용하고 AI 중점학교를 단계적으로 늘린다.",
+        src:"https://www.korea.kr/news/policyNewsView.do?newsId=156734914", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=AI+디지털교과서+K-교육AI+2026" },
+      { h:"초3 방과후 바우처 지급·유아 무상교육 4세 확대", b:"2026학년도부터 방과후학교를 희망하는 초등 3학년에게 이용권(바우처)을 지급한다. 유아 무상교육·보육비 지원 대상은 4세까지 확대돼 공립유치원 월 2만 원 등 국가 지원이 늘어난다.",
+        src:"https://www.korea.kr/news/policyFocusView.do?newsId=148958661&pkgId=49500831", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=방과후+바우처+유아+무상교육+2026" }
+    ]}
+];
+
+const filters = document.getElementById("filters");
+const content = document.getElementById("content");
+
+function chip(label, key, color, active){
+  const c = document.createElement("button");
+  c.className = "chip" + (active ? " active" : "");
+  c.textContent = label;
+  if(active && color) c.style.background = color;
+  c.dataset.key = key; c.dataset.color = color || "";
+  c.onclick = () => setFilter(key);
+  return c;
+}
+
+function render(){
+  filters.innerHTML = "";
+  filters.appendChild(chip("전체", "all", "#374151", true));
+  SECTORS.forEach(s => filters.appendChild(chip(s.name, s.key, s.color, false)));
+
+  content.innerHTML = "";
+  SECTORS.forEach(s => {
+    const sec = document.createElement("section");
+    sec.className = "sector"; sec.dataset.key = s.key;
+    sec.innerHTML = `<div class="sector-head"><span class="dot" style="background:${s.color}"></span>
+      <h2>${s.name}</h2><span class="en">${s.en}</span></div>`;
+    s.items.forEach(it => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `<div class="headline">${it.h}</div>
+        <div class="body">${it.b}</div>
+        <div class="meta">
+          <a class="src" href="${it.src}" target="_blank" rel="noopener">🔗 ${it.srcName}</a>
+          <a class="yt" href="${it.yt}" target="_blank" rel="noopener">▶ 유튜브 검색</a>
+        </div>`;
+      sec.appendChild(card);
+    });
+    content.appendChild(sec);
+  });
+}
+
+function setFilter(key){
+  document.querySelectorAll(".chip").forEach(c => {
+    const on = c.dataset.key === key;
+    c.classList.toggle("active", on);
+    c.style.background = on ? (c.dataset.color || "#374151") : "#fff";
+    c.style.color = on ? "#fff" : "#374151";
+  });
+  document.querySelectorAll(".sector").forEach(sec => {
+    sec.classList.toggle("hidden", key !== "all" && sec.dataset.key !== key);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
