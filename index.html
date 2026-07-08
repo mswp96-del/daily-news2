@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Daily News",
+  "schemaVersion": 1,
+  "description": "오늘의 뉴스 — 청소년·AI·과학·경제·국제·교육 6개 섹터별 뉴스 요약(각 2건)과 출처·유튜브 검색 링크. 섹터 필터 제공. 매일 오전 7시 스케줄 작업으로 갱신."
+}
+</script>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -51,8 +57,8 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 <div class="wrap">
   <header class="top">
     <h1>📰 오늘의 뉴스</h1>
-    <div class="date" id="date">2026년 7월 8일 (수)</div>
-    <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육</div>
+    <div class="date" id="date">2026년 7월 9일 (목)</div>
+    <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육 — 매일 오전 7시 자동 업데이트</div>
   </header>
 
   <div class="filters" id="filters"></div>
@@ -65,45 +71,45 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 const SECTORS = [
   { key:"youth", name:"청소년", en:"Youth", color:"#f59e0b",
     items:[
-      { h:"세계 20여개국 장관 부산 집결…청소년 문제 해법 모색", b:"국제청소년연합(IYF)이 7월 15일 부산 누리마루에서 제14회 세계장관포럼을 연다. 20여 개국 청소년·교육 담당 장관이 모여 각국 정책 경험을 공유하며, 7월 12~19일 열리는 2026 IYF 월드캠프의 핵심 프로그램이다.",
-        src:"https://www.dongponews.net/news/articleView.html?idxno=59118", srcName:"재외동포신문", yt:"https://www.youtube.com/results?search_query=IYF+세계장관포럼+청소년" },
-      { h:"2026 한경 청소년 경제체험대회 개최", b:"한국경제신문사가 여름방학에 교사와 학생이 팀을 이뤄 참여하는 청소년 경제 체험대회를 연다. 실물 경제를 직접 경험하며 금융·경제 이해력을 키우는 프로그램이다.",
-        src:"https://www.hankyung.com/amp/2026062824131", srcName:"한국경제", yt:"https://www.youtube.com/results?search_query=한경+청소년+경제체험대회" }
+      { h:"교육부, 학생 마음건강 지원 전면 개편…2030년까지 전 학교 전문상담인력 100% 확보", b:"교육부가 학생 마음건강 지원 체계를 전면 개편한다. 2030년까지 모든 학교에 전문상담 인력을 100% 배치하고, 고위기 학생을 위한 긴급지원팀도 단계적으로 확대한다.",
+        src:"https://www.edpl.co.kr/news/articleView.html?idxno=19146", srcName:"교육플러스", yt:"https://www.youtube.com/results?search_query=학생+마음건강+전문상담+2026" },
+      { h:"사회정서역량 교육 6→17차시 확대…학생 마음바우처 지원 강화", b:"학생의 정서·사회성 발달을 위한 사회정서교육 차시가 기존 6차시에서 17차시로 대폭 확대된다. 심리·정서 지원을 위한 학생 마음바우처 지원도 함께 늘어난다.",
+        src:"https://www.korea.kr/news/policyNewsView.do?newsId=148956461", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=사회정서교육+마음바우처+2026" }
     ]},
   { key:"ai", name:"AI", en:"인공지능", color:"#8b5cf6",
     items:[
-      { h:"중국 Z.ai, 'GLM-5.2' 오픈웨이트로 전격 공개", b:"미국이 사이버 공격 능력을 이유로 앤스로픽 모델 접근을 제한한 지 수 주 만에, 베이징 Z.ai가 GLM-5.2를 공개했다. 사용자가 가중치를 내려받아 자체 서버에서 실행·수정·추가학습할 수 있는 오픈웨이트 방식이다.",
-        src:"https://www.radioseoul1650.com/archives/146120", srcName:"Radio Seoul", yt:"https://www.youtube.com/results?search_query=GLM-5.2+오픈웨이트+중국+AI" },
-      { h:"중국 딥시크, 추론 특화 자체 AI 칩 개발 착수", b:"딥시크가 약 1년 전 시작한 추론용 자체 AI 칩 개발에 속도를 내고 있다. 반도체 인력 채용을 확대하며, 엔비디아·화웨이 칩 의존도를 줄이고 기술 자립을 강화하는 전략이다.",
-        src:"https://www.sptatimeskorea.com/post/%EC%A0%9C20260707-tt-01%ED%98%B8-2026%EB%85%84-7%EC%9B%94-7%EC%9D%BC-%EB%B0%98%EB%8F%84%EC%B2%B4-%EA%B8%B0%EC%88%A0-%EA%B4%80%EB%A0%A8-%EC%A3%BC%EC%9A%94-%EB%89%B4%EC%8A%A4-%EC%9A%94%EC%95%BD", srcName:"SPTA 타임스", yt:"https://www.youtube.com/results?search_query=딥시크+AI+칩+개발" }
+      { h:"美 상무부, 오픈AI 'GPT-5.6' 일반 출시 승인…Sol·Terra·Luna 공개", b:"미 상무부가 오픈AI의 최첨단 모델 GPT-5.6의 일반 이용자 대상 출시를 승인했다. 플래그십 'Sol(솔)'과 하위 모델 'Terra(테라)'·'Luna(루나)'가 순차 출시될 예정이다.",
+        src:"https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04621526645512552", srcName:"이데일리", yt:"https://www.youtube.com/results?search_query=GPT-5.6+오픈AI+출시" },
+      { h:"중국 Z.ai, 'GLM-5.2' 오픈웨이트로 전격 공개", b:"미국이 사이버 공격 능력을 이유로 앤스로픽 모델 접근을 제한한 지 수 주 만에, 베이징 Z.ai가 비슷한 수준의 코딩·보안 능력을 갖춘 개방형 모델 GLM-5.2를 공개했다.",
+        src:"https://www.radioseoul1650.com/archives/146120", srcName:"Radio Seoul", yt:"https://www.youtube.com/results?search_query=GLM-5.2+오픈웨이트+중국+AI" }
     ]},
   { key:"science", name:"과학", en:"Science", color:"#0ea5e9",
     items:[
-      { h:"JWST, '가장 먼 막대 나선 은하' 발견…표준 우주론 흔들다", b:"제임스 웹 우주망원경이 관측한 은하 M1149-BSG-z5가 지금까지 관측된 것 중 가장 먼 막대 나선 은하로 확인됐다. 빅뱅 이후 조직화된 은하가 형성될 수 있는 시기에 대한 기존 이해를 앞당기는 성과다.",
-        src:"https://www.newsspace.kr/news/article.html?no=14641", srcName:"뉴스스페이스", yt:"https://www.youtube.com/results?search_query=JWST+막대+나선+은하+발견" },
-      { h:"'AI 과학자' 시대…독립적 발견 주도", b:"AI가 가설을 직접 생성하고 실험을 설계하는 과학자로 진화하고 있다. Argonne 국립연구소는 5~8년 걸릴 배터리 실험 6,000건을 5개월 만에 완료하며 연구 속도를 획기적으로 단축했다.",
-        src:"https://www.giprism.com/news/articleView.html?idxno=11813", srcName:"시사프리즘", yt:"https://www.youtube.com/results?search_query=AI+과학자+자동+발견" }
+      { h:"'AI 과학자' 시대…Argonne, 배터리 실험 6천 건 5개월 만에 완료", b:"AI가 가설을 직접 세우고 실험을 설계하는 '과학자'로 진화하고 있다. Argonne 국립연구소는 통상 5~8년이 걸릴 배터리 실험 6,000건을 단 5개월 만에 완료하며 연구 속도를 획기적으로 단축했다.",
+        src:"https://www.giprism.com/news/articleView.html?idxno=11813", srcName:"시사프리즘", yt:"https://www.youtube.com/results?search_query=AI+과학자+자동+발견+실험" },
+      { h:"Nature 선정 2026 주목 이슈…희귀질환 유전자치료·다중 암 조기검진", b:"희귀 유전질환 어린이 맞춤형 유전자치료 임상 두 건이 올해 시작된다. 영국에선 혈액검사 한 번으로 50여 종 암을 탐지하는 다중 암 조기발견 기술의 대규모 임상 결과가 발표될 전망이다.",
+        src:"https://www.sciencetimes.co.kr/news/sn/261309", srcName:"사이언스타임즈", yt:"https://www.youtube.com/results?search_query=2026+유전자치료+다중암+조기검진" }
     ]},
   { key:"economy", name:"경제", en:"Economy", color:"#10b981",
     items:[
-      { h:"6월 소비자물가 3.2%↑…소비자심리 106.6으로 개선", b:"6월 소비자물가지수가 전년동월대비 3.2% 상승했다. 소비자심리지수(CCSI)는 106.6으로 전월보다 0.5p 올랐고, 제조업 기업심리지수도 101.2로 소폭 상승했다.",
-        src:"https://www.bok.or.kr/portal/main/main.do", srcName:"한국은행", yt:"https://www.youtube.com/results?search_query=소비자물가+소비자심리+2026" },
-      { h:"7월 고용·산업활동 등 주요 통계 잇단 발표", b:"7월 9일 국제인구이동통계, 15일 6월 고용동향, 31일 6월 산업활동동향이 공표된다. 한편 2025년 증권투자는 1,403억달러로 2024년의 2배를 넘어 해외투자가 가파르게 늘고 있다.",
-        src:"https://mods.go.kr/", srcName:"국가데이터처", yt:"https://www.youtube.com/results?search_query=6월+고용동향+2026" }
+      { h:"6월 소비자심리지수 106.6…전월比 0.5p 상승", b:"6월 소비자심리지수(CCSI)가 106.6으로 전월보다 0.5p 올랐다. 제조업 기업심리지수도 101.2로 소폭 상승했으나, 비제조업은 95.4로 하락해 업종별 온도차를 보였다.",
+        src:"https://m.news.nate.com/view/20260708n00378?issue_sq=11002", srcName:"네이트뉴스", yt:"https://www.youtube.com/results?search_query=소비자심리지수+6월+2026" },
+      { h:"6월 수출 반도체 호조로 900억달러 상회 전망…연내 금리 인상 가능성", b:"6월 수출이 반도체 호조를 중심으로 900억 달러를 넘어설 것으로 예상된다. 한국은행이 물가 안정에 민감한 만큼, 연내 기준금리 2회 인상 가능성이 거론되고 있다.",
+        src:"https://kbthink.com/investment/deepdive/weekly/260629-3.html", srcName:"KB의 생각", yt:"https://www.youtube.com/results?search_query=수출+반도체+기준금리+2026" }
     ]},
   { key:"world", name:"국제", en:"World", color:"#ef4444",
     items:[
-      { h:"미국 독립 250주년…뉴욕항 국제관함식·범선 퍼레이드", b:"미국 독립 250주년을 맞아 4일 뉴욕항에서 미국과 주요 동맹국 해군 함정이 참가하는 국제관함식과 대형 범선 퍼레이드가 펼쳐졌다. 달러의 국제적 위상도 다시 주목받고 있다.",
-        src:"https://www.new1cm.com/2026/07/2026-07-06.html", srcName:"해외뉴스 요약", yt:"https://www.youtube.com/results?search_query=미국+독립+250주년+국제관함식" },
-      { h:"프랑스 남부 산불…주민 1만여 명 긴급 대피", b:"프랑스 남부 트레비야슈에서 발생한 산불로 스페인 국경 인근 마을 주민 1만 명 이상이 긴급 대피했다. 유럽 남부의 이른 폭염과 건조한 날씨가 산불 위험을 키우고 있다.",
-        src:"https://www.new1cm.com/2026/07/2026-07-07.html", srcName:"해외뉴스 요약", yt:"https://www.youtube.com/results?search_query=프랑스+남부+산불+대피" }
+      { h:"인도네시아 'B50 바이오연료' 의무화 시행…브라질도 혼합비율 32%로", b:"인도네시아가 7월 1일부터 B50 바이오연료 의무 사용 프로그램을 전국 시행했다. 호르무즈 해협 공급 차질로 에너지 안보가 흔들리자, 브라질도 휘발유 바이오연료 혼합비율을 30%에서 32%로 올렸다.",
+        src:"https://www.vietnam.vn/ko/tin-tuc-noi-bat-ngay-7-7-2026-co-gi", srcName:"Vietnam.vn", yt:"https://www.youtube.com/results?search_query=바이오연료+B50+인도네시아+2026" },
+      { h:"미국 독립 250주년…뉴욕항 국제관함식·범선 퍼레이드", b:"미국 독립 250주년을 맞아 7월 4일 뉴욕항에서 미국과 주요 동맹국 해군 함정이 참가하는 국제관함식과 대형 범선 퍼레이드가 펼쳐졌다.",
+        src:"https://www.new1cm.com/2026/07/2026-07-03.html", srcName:"해외뉴스 요약", yt:"https://www.youtube.com/results?search_query=미국+독립+250주년+국제관함식" }
     ]},
   { key:"education", name:"교육", en:"Education", color:"#ec4899",
     items:[
-      { h:"교육부, AI 디지털 교과서 원년…'K-교육 AI' 확산", b:"2026년 교육부 업무계획에 따라 AI 디지털 교과서가 교실에 본격 도입된다. 교육 특화 생성형 AI인 'K-교육 AI'를 일상 수업에 활용하고 AI 중점학교를 단계적으로 늘린다.",
-        src:"https://www.korea.kr/news/policyNewsView.do?newsId=156734914", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=AI+디지털교과서+K-교육AI+2026" },
-      { h:"초3 방과후 바우처 지급·유아 무상교육 4세 확대", b:"2026학년도부터 방과후학교를 희망하는 초등 3학년에게 이용권(바우처)을 지급한다. 유아 무상교육·보육비 지원 대상은 4세까지 확대돼 공립유치원 월 2만 원 등 국가 지원이 늘어난다.",
-        src:"https://www.korea.kr/news/policyFocusView.do?newsId=148958661&pkgId=49500831", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=방과후+바우처+유아+무상교육+2026" }
+      { h:"교육부 2026 정책방향…헌법가치·AI 인재·지역 균형 성장", b:"교육부가 헌법 가치 실천, AI 인재 양성, 지역 균형 성장을 축으로 2026년 정책을 추진한다. 'K-교육 AI'의 일상 수업 활용을 확대하고 AI 중점학교를 단계적으로 늘린다.",
+        src:"https://www.korea.kr/news/policyNewsView.do?newsId=156734914", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=교육부+2026+정책방향+AI" },
+      { h:"거점 국립대 5년간 4조원+ 투자…특성화 연구대학 단계적 설립", b:"교육부가 거점 국립대에 5년간 4조 원 이상을 추가 투자한다. 2026년 3개교를 시작으로 세계적 수준의 특성화 연구대학·연구원을 단계적으로 설립해 지역 산학연 허브로 육성한다.",
+        src:"https://kpgnews.kr/news/view.php?idx=2237&mcode=m60mpab", srcName:"KPG뉴스", yt:"https://www.youtube.com/results?search_query=거점국립대+특성화+연구대학+2026" }
     ]}
 ];
 
