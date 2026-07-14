@@ -57,7 +57,7 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 <div class="wrap">
   <header class="top">
     <h1>📰 오늘의 뉴스</h1>
-    <div class="date" id="date">2026년 7월 12일 (일)</div>
+    <div class="date" id="date">2026년 7월 15일 (수)</div>
     <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육 — 매일 오전 7시 자동 업데이트</div>
   </header>
 
@@ -71,45 +71,45 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 const SECTORS = [
   { key:"youth", name:"청소년", en:"Youth", color:"#f59e0b",
     items:[
-      { h:"동작구, 2026 위기청소년 특별지원사업 2차 접수…자립·건강 성장 지원", b:"동작구가 어려움에 놓인 청소년의 건강한 성장과 안정적 자립을 돕는 '위기청소년 특별지원사업'을 이어간다. 3~5월 1차에서 10명을 선정·지원한 데 이어, 2차 접수·지원은 7월부터 11월까지 진행한다.",
-        src:"https://news.nate.com/view/20260709n03507", srcName:"네이트뉴스", yt:"https://www.youtube.com/results?search_query=위기청소년+특별지원사업+2026" },
-      { h:"교육부, 2030청년자문단 간담회…AI·미래교육 등 4개 분과로 개편", b:"최교진 교육부 장관이 정부세종청사에서 '2030청년자문단 간담회'를 열고 청년 의견을 교육정책에 반영하기로 했다. 기존 5개 분과는 고등·평생정책, 교원정책, 교육권리, AI 미래교육 등 4개 분과로 개편됐다.",
-        src:"https://www.newspim.com/news/view/20260617000147", srcName:"뉴스핌", yt:"https://www.youtube.com/results?search_query=교육부+2030청년자문단+2026" }
+      { h:"이재명 대통령, 촉법소년 기준 하향 가능성 시사", b:"이재명 대통령이 7월 14일 국무회의에서 만 10세 이상 14세 미만인 형사미성년자(촉법소년) 연령 하향 논의와 관련해 '낮추긴 낮춰야 할 것 같다'며 사실상 기준 하향 가능성을 언급했다. 소년범죄 대응을 둘러싼 사회적 논의가 다시 촉발될 전망이다.",
+        src:"https://www.swn.kr/2026/07/14/%E6%9D%8E%EB%8C%80%ED%86%B5%EB%A0%B9-%EC%B4%89%EB%B2%95%EC%86%8C%EB%85%84-%EA%B8%B0%EC%A4%80-%ED%95%98%ED%96%A5-%EA%B0%80%EB%8A%A5%EC%84%B1-%EB%B0%9D%ED%98%80/", srcName:"수완뉴스", yt:"https://www.youtube.com/results?search_query=촉법소년+기준+하향+2026" },
+      { h:"방학 틈새돌봄 사업 확대…전국 2,500개소 운영시간 연장", b:"7월 27일부터 방학기간 한정으로 방과후 돌봄시설 운영시간을 확대하는 '틈새돌봄' 사업이 전국 2,500개소에서 실시된다. 방학 중 돌봄 공백을 메우기 위한 조치로, 맞벌이·저소득 가정의 부담을 덜어줄 것으로 기대된다.",
+        src:"https://www.sisunnews.co.kr/news/articleView.html?idxno=242399", srcName:"시선뉴스", yt:"https://www.youtube.com/results?search_query=방학+틈새돌봄+2026" }
     ]},
   { key:"ai", name:"AI", en:"인공지능", color:"#8b5cf6",
     items:[
-      { h:"오픈AI, 차세대 모델 'GPT-5.6' 공식 출시…생성형 AI 새 기준 제시", b:"오픈AI가 가장 강력한 AI 모델 'GPT-5.6'을 7월 9일 공식 출시했다. 코덱스 기술을 결합한 '챗GPT 워크(ChatGPT Work)'의 기반 모델로, 생성형 AI 시장의 새로운 경쟁 기준을 제시했다는 평가다.",
+      { h:"오픈AI, 차세대 모델 'GPT-5.6' 공식 출시", b:"오픈AI가 차세대 AI 모델 'GPT-5.6'을 공개하며 생성형 AI 시장의 새 경쟁 기준을 제시했다. 코덱스 기술을 기반으로 한 업무용 서비스 '챗GPT 워크(ChatGPT Work)'도 함께 선보였다.",
         src:"https://www.aiapps.com/blog/top-ai-news-july-breakthroughs-launches-trends/", srcName:"AIapps", yt:"https://www.youtube.com/results?search_query=GPT-5.6+오픈AI+출시" },
-      { h:"메타 첫 이미지 생성 AI '뮤즈 이미지' 공개…구글 포토엔 '비디오 리믹스'", b:"메타가 첫 차세대 이미지 생성 AI '뮤즈 이미지(Muse Image)'를 공개하며 생성형 AI 경쟁에 본격 합류했다. 구글 포토에는 몇 초 만에 전문가 수준 편집이 가능한 '비디오 리믹스' 기능이 도입됐다.",
-        src:"https://medium.com/@davidakpovi/ai-news-week-of-july-6-to-july-12-2026-f81a26c49c55", srcName:"AI News(Medium)", yt:"https://www.youtube.com/results?search_query=메타+뮤즈+이미지+AI" }
+      { h:"EU, 13세 미만 SNS 이용 제한·AI 동반자 서비스 규제 추진", b:"유럽연합(EU)이 13세 미만 아동의 SNS 이용을 제한하고, AI 동반자(AI companion) 서비스까지 규제하는 방안을 제시했다. 미성년자의 디지털·AI 노출을 둘러싼 규제 논의가 본격화되고 있다.",
+        src:"https://medium.com/@davidakpovi/ai-news-week-of-july-6-to-july-12-2026-f81a26c49c55", srcName:"AI News(Medium)", yt:"https://www.youtube.com/results?search_query=EU+13세+미만+SNS+AI+규제+2026" }
     ]},
   { key:"science", name:"과학", en:"Science", color:"#0ea5e9",
     items:[
-      { h:"한국천문연구원, 먼지 속에서도 강한 푸른빛 내는 거대은하 발견", b:"한국천문연구원이 참여한 국제 공동 연구팀이 먼지에 둘러싸여 있으면서도 강한 푸른빛을 내는 거대은하를 발견했다. 자체 운영하는 외계행성탐색시스템(KMTNet)으로 찾은 특이 천체 후보를 제미니 남반구 망원경으로 후속 관측해 성과를 냈다.",
-        src:"https://www.sciencetimes.co.kr/nscvrg/view/menu/248?searchCategory=220&nscvrgSn=261357", srcName:"사이언스타임즈", yt:"https://www.youtube.com/results?search_query=한국천문연구원+거대은하+KMTNet" },
-      { h:"2026년, 우주 탐사의 새 시대…MMX·창어 7호·아르테미스 II 잇단 도전", b:"2026년은 우주 탐사의 역사적 해가 될 전망이다. 일본 MMX가 화성 위성의 비밀을 밝히고, 중국 창어 7호가 달 남극 자원을 조사하며, NASA 아르테미스 II가 인간을 다시 달 궤도로 보낸다. 한국도 실질적 우주 강국으로의 도약을 노린다.",
-        src:"https://www.kairnews.com/news/477756", srcName:"한국AI부동산신문", yt:"https://www.youtube.com/results?search_query=2026+우주탐사+아르테미스+창어7호" }
+      { h:"KAIST·성균관대, 전기 막힘 없는 2차원 반도체 구조 세계 첫 구현", b:"KAIST와 성균관대 연구진이 2차원 소재 안에 준금속과 반도체 영역을 연속으로 구현해 전기 병목현상을 줄이는 새 구조를 개발했다. AFM으로 전하 이동을 직접 관찰해 경계에서 전류가 막히지 않음을 세계 최초로 입증했다.",
+        src:"https://www.seoul.co.kr/news/society/science-news/2026/07/13/20260713500069", srcName:"서울신문", yt:"https://www.youtube.com/results?search_query=KAIST+2차원+반도체+전기" },
+      { h:"네이처 '2026 주목할 과학'…혈액검사 한 번으로 50종 암 조기진단", b:"국제학술지 네이처가 꼽은 2026년 주요 과학 이슈로, 영국에서 한 번의 혈액검사로 약 50종의 암을 탐지하는 '다중 암 조기발견' 대규모 임상시험 결과가 올해 발표될 전망이다.",
+        src:"https://www.sciencetimes.co.kr/news/sn/261309", srcName:"사이언스타임즈", yt:"https://www.youtube.com/results?search_query=혈액검사+50종+암+조기진단+2026" }
     ]},
   { key:"economy", name:"경제", en:"Economy", color:"#10b981",
     items:[
-      { h:"6월 수출 반도체 호조로 900억달러 상회 전망…연내 금리 2회 인상 거론", b:"메모리 반도체 수요 호조로 6월 수출이 900억 달러를 넘어설 것으로 예상된다. 국고채 금리는 상방 압력이 우세하고, 한국은행이 물가 안정에 민감한 만큼 연내 기준금리 2회 인상 가능성이 거론된다.",
-        src:"https://kbthink.com/investment/deepdive/weekly/260629-3.html", srcName:"KB의 생각", yt:"https://www.youtube.com/results?search_query=수출+반도체+기준금리+2026" },
-      { h:"KDI, 2026 한국경제 2.5% 성장 전망…반도체 수출·내수 개선 견인", b:"KDI는 2026년 한국 경제가 반도체 수출 호조세와 내수 개선세에 힘입어 2.5% 안팎 성장할 것으로 전망했다. 다만 물가가 2개월 연속 전년 동월 대비 3.0%를 넘을 것으로 예상돼 물가 부담은 변수로 남는다.",
-        src:"https://www.kdi.re.kr/research/economy", srcName:"KDI 한국개발연구원", yt:"https://www.youtube.com/results?search_query=KDI+2026+한국경제+성장전망" }
+      { h:"5월 경상수지 386.1억 달러 흑자", b:"한국은행 발표에 따르면 2026년 5월 경상수지가 386.1억 달러 흑자를 기록했다. 반도체 등 수출 호조가 흑자 기조를 뒷받침하고 있다.",
+        src:"https://www.bok.or.kr/portal/main/main.do", srcName:"한국은행", yt:"https://www.youtube.com/results?search_query=경상수지+흑자+2026" },
+      { h:"'빚투' 반대매매 7월에만 4,258억원…증시 급락에 강제처분 급증", b:"빚내서 투자한 개인투자자가 제때 상환하지 못해 강제 처분당한 금액이 7월 들어 4,258억원을 넘어섰다. 중동 분쟁 재점화와 반도체 고점 논란, 레버리지 상품 수급 왜곡이 겹치며 증시가 급락한 여파다.",
+        src:"https://www.hankyung.com/", srcName:"한국경제", yt:"https://www.youtube.com/results?search_query=빚투+반대매매+증시+2026" }
     ]},
   { key:"world", name:"국제", en:"World", color:"#ef4444",
     items:[
-      { h:"호르무즈 해협서 유조선 3척 피격…통항 위험수준 '심각'으로 격상", b:"7월 7일 호르무즈 해협에서 유조선 3척이 공격받은 뒤 해양 당국이 해당 해역 통과 선박의 위험 수준을 '심각' 단계로 격상했다. 글로벌 에너지 공급 차질과 유가 불안 우려가 커지고 있다.",
-        src:"https://www.vietnam.vn/ko/diem-tin-kinh-te-the-gioi-noi-bat-ngay-7-7-2026", srcName:"Vietnam.vn", yt:"https://www.youtube.com/results?search_query=호르무즈+해협+유조선+피격+2026" },
-      { h:"일본 상반기 기업 파산 5,346건…12년 만에 5천 건 돌파, 엔화 40년 최저", b:"2026년 상반기 일본 기업 파산이 5,346건으로 12년 만에 처음 5,000건을 넘어섰다. 엔화는 미 달러 대비 40년 만의 최저 수준 부근에서 거래되며 일본 경제의 구조적 부담을 드러냈다.",
-        src:"https://www.vietnam.vn/ko/diem-tin-kinh-te-the-gioi-noi-bat-ngay-8-7-2026", srcName:"Vietnam.vn", yt:"https://www.youtube.com/results?search_query=일본+기업+파산+엔화+2026" }
+      { h:"일본 상반기 기업 파산 5,346건…12년 만에 5천 건 돌파", b:"2026년 상반기 일본 기업 파산 건수가 전년 대비 7.1% 늘어난 5,346건으로, 12년 만에 처음 5,000건을 넘어섰다. 엔화 약세와 비용 상승이 중소기업을 압박하고 있다.",
+        src:"https://www.vietnam.vn/ko/diem-tin-kinh-te-the-gioi-noi-bat-ngay-8-7-2026", srcName:"Vietnam.vn", yt:"https://www.youtube.com/results?search_query=일본+기업+파산+2026" },
+      { h:"미 재무부, 이란 제재 부활…호르무즈 해협 공격 재개에 대응", b:"미국 재무부가 7월 10일 이란에 대한 강력한 경제 제재를 다시 부과했다. 이란이 호르무즈 해협에서 국제 해운에 대한 공격을 재개한 데 따른 조치로, 유가·물류에 미칠 파장이 주목된다.",
+        src:"https://www.new1cm.com/2026/07/2026-07-13.html", srcName:"해외뉴스요약", yt:"https://www.youtube.com/results?search_query=미국+이란+제재+호르무즈+2026" }
     ]},
   { key:"education", name:"교육", en:"Education", color:"#ec4899",
     items:[
-      { h:"교육부, 사회정서교육 6→17차시 확대…학생 마음바우처 100억으로", b:"교육부가 학생 심리·정서 지원을 강화한다. 사회정서교육 차시를 6차시에서 17차시로 확대하고, 학생 마음바우처 지원을 2025년 치료비 80억 원에서 2026년 치료비+상담비 100억 원으로 늘린다.",
-        src:"https://www.korea.kr/news/policyNewsView.do?newsId=148956461", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=사회정서교육+마음바우처+2026" },
-      { h:"기초학력지원센터 5→17개 확대·특수학급 증설…2026 교육부 업무계획", b:"교육부가 '국가가 책임지는 기본교육'을 내걸고 기초학력지원센터를 5개에서 17개로 확대한다. 특수학급도 14,658학급에서 15,258학급으로 신·증설하고, K-교육 AI의 일상 수업 활용과 AI 중점학교를 단계적으로 늘린다.",
-        src:"https://www.korea.kr/news/policyNewsView.do?newsId=156734914", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=교육부+2026+업무계획+기초학력" }
+      { h:"교육부 2026 업무계획 '국가가 책임지는 기본교육'…15개 과제 추진", b:"교육부가 '국가가 책임지는 기본교육, 국민이 체감하는 교육강국'을 비전으로 15개 중점 과제를 추진한다. 기초학력 지원센터 설치, 특수교육 확대, 무상 교육·보육 4세까지 확대 등이 포함됐다.",
+        src:"https://www.korea.kr/news/policyNewsView.do?newsId=148956461", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=2026+교육부+업무계획" },
+      { h:"교육부, 2030청년자문단 개편…AI 미래교육 등 4개 분과 운영", b:"교육부가 2030청년자문단을 고등·평생정책, 교원정책, 교육권리, AI 미래교육 등 4개 분과로 개편해 청년의 목소리를 교육정책에 반영한다.",
+        src:"https://www.newspim.com/news/view/20260617000147", srcName:"뉴스핌", yt:"https://www.youtube.com/results?search_query=교육부+2030+청년자문단+AI" }
     ]}
 ];
 
