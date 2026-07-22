@@ -57,6 +57,176 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 <div class="wrap">
   <header class="top">
     <h1>📰 오늘의 뉴스</h1>
+    <div class="date" id="date">2026년 7월 22일 (수)</div>
+    <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육 — 매일 오전 7시 자동 업데이트</div>
+  </header>
+
+  <div class="filters" id="filters"></div>
+  <div id="content"></div>
+
+  <footer>뉴스·유튜브 검색 기반 요약 · 자세한 내용은 각 출처 링크를 확인하세요.</footer>
+</div>
+
+<script>
+const SECTORS = [
+  { key:"youth", name:"청소년", en:"Youth", color:"#f59e0b",
+    items:[
+      { h:"여가부, 2026년 청소년 예산…고립·은둔 지원 확대·심리클리닉 인력 보강", b:"여성가족부가 2026년 예산안에서 청소년 마음건강과 안전 지원을 강화한다. 고립·은둔 청소년을 돕는 원스톱 패키지 지원 지역을 늘리고, 자살·자해 집중심리클리닉 인력을 19명 확충한다. 청소년 시설 급식비를 1인당 5000원에서 6000원으로 올리고 국가 간 교류·참여위원회 등 활동 프로그램도 신설한다.",
+        src:"https://www.korea.kr/news/policyNewsView.do?newsId=148953127", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=%EC%97%AC%EC%84%B1%EA%B0%80%EC%A1%B1%EB%B6%80+%EC%B2%AD%EC%86%8C%EB%85%84+%EC%98%88%EC%82%B0+2026" },
+      { h:"학생 마음건강 24시간 상담체계로…사회정서교육·상담교사 확대", b:"교육부가 학생 마음건강 지원을 개편해 24시간 문자·전화·SNS 상담 서비스를 제공한다. 사회정서교육을 연 6차시에서 17차시로 늘리고 관련 선도교사 1500명을 양성하며, 위기 대응 긴급지원팀도 56개에서 100개로 확대한다. 2030년까지 모든 학교에 전문상담인력 배치를 목표로 한다.",
+        src:"https://www.edpl.co.kr/news/articleView.html?idxno=19146", srcName:"교육플러스", yt:"https://www.youtube.com/results?search_query=%ED%95%99%EC%83%9D+%EB%A7%88%EC%9D%8C%EA%B1%B4%EA%B0%95+%EC%83%81%EB%8B%B4+2026" }
+    ]},
+  { key:"ai", name:"AI", en:"인공지능", color:"#8b5cf6",
+    items:[
+      { h:"연말부터 무료 국산 AI '모두의 AI' 나온다…514만 명 AI 교육", b:"과학기술정보통신부가 7월 16일 국산 생성형 AI '모두의 AI'를 연말부터 이용량 제약 없이 무료 제공한다고 밝혔다. 농축산물 가격비교·AI 국세상담 등 4개 서비스로 시작해 내년까지 10개로 늘리고, 연말까지 514만 명에게 AI 활용역량 교육을 제공한다. 내년부터는 정부 지원 안내·신청을 대신하는 AI 에이전트로 확대할 계획이다.",
+        src:"https://www.seoul.co.kr/news/society/science-news/2026/07/16/20260716500100", srcName:"서울신문", yt:"https://www.youtube.com/results?search_query=%EB%AA%A8%EB%91%90%EC%9D%98+AI+%EB%AC%B4%EB%A3%8C+K-AI" },
+      { h:"오픈AI 'GPT-5.6' 국내외 확산…추론·업무 자동화 경쟁 가열", b:"지난 9일 정식 공개된 오픈AI의 차세대 모델 GPT-5.6이 추론 성능을 앞세워 국내외로 빠르게 확산되고 있다. 코딩을 몰라도 문서·표·웹앱을 만들어 주는 기능이 주목받으며 기업들의 업무 자동화 경쟁이 치열해지고 있다. 국내 기업과 공공기관도 자체 AI 도입에 속도를 내고 있다.",
+        src:"https://www.k-ainews.com/", srcName:"한국인공지능신문", yt:"https://www.youtube.com/results?search_query=GPT-5.6+%EC%98%A4%ED%94%88AI+2026" }
+    ]},
+  { key:"science", name:"과학", en:"Science", color:"#0ea5e9",
+    items:[
+      { h:"카이스트·성균관대, 전기 병목 없는 2차원 반도체 구조 세계 첫 구현", b:"카이스트와 성균관대 연구진이 백금 다이셀레나이드 박막에서 준금속과 반도체 영역을 연속으로 잇는 구조를 개발했다. 원자힘현미경으로 전하 이동을 나노미터 수준에서 관찰해 경계에서 전류가 끊기지 않음을 세계 최초로 입증했으며, 결과는 국제학술지 '매터' 7월호에 실렸다. AI 반도체·초저전력 소자 등 차세대 반도체에 활용될 전망이다. ※ 수업 활용 포인트: 중2 '전기와 자기'·중3 '물질의 특성'에서 도체·반도체의 전기 전도 차이와 신소재 개발 사례로 연결.",
+        src:"https://www.seoul.co.kr/news/society/science-news/2026/07/13/20260713500069", srcName:"서울신문", yt:"https://www.youtube.com/results?search_query=2%EC%B0%A8%EC%9B%90+%EB%B0%98%EB%8F%84%EC%B2%B4+%EC%B9%B4%EC%9D%B4%EC%8A%A4%ED%8A%B8+%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80" },
+      { h:"다목적실용위성 7호·차세대중형위성 3호 궤도 안착…0.3m 초고해상도", b:"다목적실용위성 7호와 차세대중형위성 3호가 목표 궤도에 안착해 정상 운영에 들어갔다. 7호는 지상의 자동차 종류까지 식별하는 0.3m급 초고해상도 관측 성능을 갖췄고, 차세대중형위성 3호는 민간 주도로 개발돼 뉴스페이스 시대의 성과로 평가된다. ※ 수업 활용 포인트: 중3 '태양계'·'과학기술과 사회'에서 인공위성 궤도와 원격탐사 활용 사례로 소개.",
+        src:"https://www.korea-news.com/news/articleView.html?idxno=103672", srcName:"공무원뉴스", yt:"https://www.youtube.com/results?search_query=%EB%8B%A4%EB%AA%A9%EC%A0%81%EC%8B%A4%EC%9A%A9%EC%9C%84%EC%84%B1+7%ED%98%B8+%EC%B0%A8%EC%84%B8%EB%8C%80%EC%A4%91%ED%98%95%EC%9C%84%EC%84%B1+3%ED%98%B8" }
+    ]},
+  { key:"economy", name:"경제", en:"Economy", color:"#10b981",
+    items:[
+      { h:"6월 소비자물가 3.2% 상승…농축수산물·석유류가 견인", b:"KDI가 정리한 7월 최근 경제동향에 따르면 6월 소비자물가는 농축수산물과 석유류 가격 상승으로 전년 동월 대비 3.2% 올랐다. 물가 오름세가 이어지면서 가계의 체감 부담도 커지고 있다.",
+        src:"https://eiec.kdi.re.kr/policy/materialView.do?num=284260", srcName:"KDI 경제정보센터", yt:"https://www.youtube.com/results?search_query=6%EC%9B%94+%EC%86%8C%EB%B9%84%EC%9E%90%EB%AC%BC%EA%B0%80+3.2+2026" },
+      { h:"6월 취업자 6만3천 명 증가…고용률 63.4%", b:"6월 취업자 수는 전년 동월보다 6만3000명 늘었으나 고용률은 63.4%로 소폭 낮아졌다. 반도체·선박 등 수출 호조가 이어지는 가운데 내수·고용의 온도차가 지표로 확인됐다.",
+        src:"https://eiec.kdi.re.kr/policy/materialView.do?num=284260", srcName:"KDI 경제정보센터", yt:"https://www.youtube.com/results?search_query=6%EC%9B%94+%EA%B3%A0%EC%9A%A9%EB%8F%99%ED%96%A5+%EC%B7%A8%EC%97%85%EC%9E%90+2026" }
+    ]},
+  { key:"world", name:"국제", en:"World", color:"#ef4444",
+    items:[
+      { h:"미국·이란 무력 충돌 격화…7월 20일 추가 공습", b:"미국과 이란의 무력 충돌이 7월 들어 격화되고 있다고 외신들이 전했다. 미국은 7월 20일 테헤란에 대한 경고 이후 이란 목표물에 추가 공습을 단행했고, 이란은 미사일로 맞대응했다. 호르무즈 해협의 긴장으로 국제 유가와 물류에 미칠 영향이 우려된다.",
+        src:"https://www.cnn.com/2026/07/20/world/live-news/iran-war-trump", srcName:"CNN", yt:"https://www.youtube.com/results?search_query=US+Iran+conflict+July+2026" },
+      { h:"페루 후닌 지역 연쇄 지진…규모 5.1, 인명·주택 피해", b:"7월 20일 페루 후닌 지역에서 규모 5.1과 3.7의 지진이 잇따라 발생했다. 최소 5명이 숨지고 20여 명이 다쳤으며, 흙벽돌 주택 수십 채가 무너져 이재민이 발생했다.",
+        src:"https://www.new1cm.com/2026/07/2026-07-20.html", srcName:"뉴스1CM 해외뉴스요약", yt:"https://www.youtube.com/results?search_query=Peru+earthquake+July+2026" }
+    ]},
+  { key:"education", name:"교육", en:"Education", color:"#ec4899",
+    items:[
+      { h:"교육부 2026 업무계획 추진…'K-교육 AI' 학교 일상화·AI 중점학교 확대", b:"교육부는 '국가가 책임지는 기본교육, 국민이 체감하는 교육강국'을 내걸고 2026년 업무계획을 추진 중이다. 교육 특화 생성형 AI인 'K-교육 AI'를 학교 현장에서 일상적으로 쓸 수 있게 하고 AI 중점학교를 단계적으로 늘린다.",
+        src:"https://www.korea.kr/news/policyNewsView.do?newsId=156734914", srcName:"정책브리핑", yt:"https://www.youtube.com/results?search_query=2026+%EA%B5%90%EC%9C%A1%EB%B6%80+%EC%97%85%EB%AC%B4%EA%B3%84%ED%9A%8D+K-%EA%B5%90%EC%9C%A1+AI" },
+      { h:"'학생맞춤통합지원법' 2026년 시행…학생 마음건강 지원비 신설", b:"위기학생을 조기에 찾아 학습·정서·복지를 통합 지원하는 학생맞춤통합지원법이 2026년 시행됐다. 이에 맞춰 지방교육재정교부금에 '학생 마음건강 지원비'를 신설하는 등 재정·법적 기반을 마련했다.",
+        src:"https://www.edpl.co.kr/news/articleView.html?idxno=19146", srcName:"교육플러스", yt:"https://www.youtube.com/results?search_query=%ED%95%99%EC%83%9D%EB%A7%9E%EC%B6%A4%ED%86%B5%ED%95%A9%EC%A7%80%EC%9B%90%EB%B2%95+2026" }
+    ]}
+];
+
+const filters = document.getElementById("filters");
+const content = document.getElementById("content");
+
+function chip(label, key, color, active){
+  const c = document.createElement("button");
+  c.className = "chip" + (active ? " active" : "");
+  c.textContent = label;
+  if(active && color) c.style.background = color;
+  c.dataset.key = key; c.dataset.color = color || "";
+  c.onclick = () => setFilter(key);
+  return c;
+}
+
+function render(){
+  filters.innerHTML = "";
+  filters.appendChild(chip("전체", "all", "#374151", true));
+  SECTORS.forEach(s => filters.appendChild(chip(s.name, s.key, s.color, false)));
+
+  content.innerHTML = "";
+  SECTORS.forEach(s => {
+    const sec = document.createElement("section");
+    sec.className = "sector"; sec.dataset.key = s.key;
+    sec.innerHTML = `<div class="sector-head"><span class="dot" style="background:${s.color}"></span>
+      <h2>${s.name}</h2><span class="en">${s.en}</span></div>`;
+    s.items.forEach(it => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `<div class="headline">${it.h}</div>
+        <div class="body">${it.b}</div>
+        <div class="meta">
+          <a class="src" href="${it.src}" target="_blank" rel="noopener">🔗 ${it.srcName}</a>
+          <a class="yt" href="${it.yt}" target="_blank" rel="noopener">▶ 유튜브 검색</a>
+        </div>`;
+      sec.appendChild(card);
+    });
+    content.appendChild(sec);
+  });
+}
+
+function setFilter(key){
+  document.querySelectorAll(".chip").forEach(c => {
+    const on = c.dataset.key === key;
+    c.classList.toggle("active", on);
+    c.style.background = on ? (c.dataset.color || "#374151") : "#fff";
+    c.style.color = on ? "#fff" : "#374151";
+  });
+  document.querySelectorAll(".sector").forEach(sec => {
+    sec.classList.toggle("hidden", key !== "all" && sec.dataset.key !== key);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
+<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Daily News",
+  "schemaVersion": 1,
+  "description": "오늘의 뉴스 — 청소년·AI·과학·경제·국제·교육 6개 섹터별 뉴스 요약(각 2건)과 출처·유튜브 검색 링크. 섹터 필터 제공. 매일 오전 7시 스케줄 작업으로 갱신."
+}
+</script>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 뉴스</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  background: #f6f7f9; color: #1a1a1a; line-height: 1.5; padding: 24px 16px 48px;
+}
+.wrap { max-width: 880px; margin: 0 auto; }
+header.top { text-align: center; margin-bottom: 8px; }
+header.top h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+header.top .date { color: #6b7280; font-size: 14px; margin-top: 6px; }
+header.top .sub { color: #9ca3af; font-size: 12px; margin-top: 2px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0 24px; }
+.chip {
+  border: 1px solid #e2e5ea; background: #fff; color: #374151; font-size: 13px; font-weight: 600;
+  padding: 7px 14px; border-radius: 999px; cursor: pointer; transition: all .15s;
+}
+.chip:hover { border-color: #c7ccd4; }
+.chip.active { color: #fff; border-color: transparent; }
+.sector { margin-bottom: 26px; }
+.sector-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.dot { width: 12px; height: 12px; border-radius: 4px; }
+.sector-head h2 { font-size: 18px; font-weight: 700; }
+.sector-head .en { color: #9ca3af; font-size: 12px; font-weight: 500; }
+.card {
+  background: #fff; border: 1px solid #edeff2; border-radius: 14px; padding: 16px 18px;
+  margin-bottom: 10px; box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+.card .headline { font-size: 15.5px; font-weight: 700; margin-bottom: 6px; color: #111827; }
+.card .body { font-size: 14px; color: #4b5563; }
+.card .meta { margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.card a.src {
+  font-size: 12px; font-weight: 600; text-decoration: none; color: #2563eb;
+  background: #eff4ff; padding: 3px 10px; border-radius: 999px;
+}
+.card a.yt {
+  font-size: 12px; font-weight: 600; text-decoration: none; color: #b91c1c;
+  background: #fdecec; padding: 3px 10px; border-radius: 999px;
+}
+footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; }
+.hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>📰 오늘의 뉴스</h1>
     <div class="date" id="date">2026년 7월 21일 (화)</div>
     <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육 — 매일 오전 7시 자동 업데이트</div>
   </header>
