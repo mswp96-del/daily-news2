@@ -1,0 +1,29 @@
+name: daily-news
+on:
+  schedule:
+    - cron: '0 22 * * *'   # 07:00 KST
+    - cron: '0 0 * * *'    # 09:00 KST (재시도; 이미 오늘분이면 스크립트가 변경 안 함)
+  workflow_dispatch:        # 저장소 Actions 탭에서 수동 실행 가능
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build news
+        run: python build_news.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- index.html; then
+            echo "No change (already today's news)"
+          else
+            git add index.html
+            git commit -m "뉴스 자동 업데이트 (Actions) $(TZ=Asia/Seoul date +%Y-%m-%d)"
+            git push
+          fi
