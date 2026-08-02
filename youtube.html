@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유튜브 영상 분야별 모음</title>
+<style>
+  :root{
+    --navy:#1B2A41;
+    --brass:#B08D57;
+    --ivory:#FAF6EF;
+    --card:#FFFFFF;
+    --line:#E6DFD3;
+    --text:#2B2B2B;
+    --muted:#8A8175;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ivory); color:var(--text);
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    line-height:1.55;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 20px 72px}
+  header h1{
+    font-family:"Noto Serif KR",serif; font-size:26px; margin:0 0 6px;
+    color:var(--navy); letter-spacing:-.4px;
+  }
+  header .sub{color:var(--muted);font-size:13.5px;margin:0 0 20px}
+  header .sub a{color:var(--brass);text-decoration:none;border-bottom:1px solid #E3D4BC}
+  #q{
+    width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:12px;
+    background:#fff;font-size:14.5px;font-family:inherit;outline:none;
+  }
+  #q:focus{border-color:var(--brass)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 26px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;
+    border:1px solid var(--line);background:#fff;cursor:pointer;font-size:13px;color:#4A4438;
+    transition:.15s;
+  }
+  .chip:hover{border-color:var(--brass)}
+  .chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .chip .n{color:var(--muted);font-size:12px}
+  .chip.on .n{color:#C8D0DC}
+  section{margin-bottom:34px}
+  .sechead{display:flex;align-items:center;gap:9px;margin:0 0 6px}
+  .sechead .dot{width:11px;height:11px;border-radius:50%}
+  .sechead h2{font-size:17px;margin:0;color:var(--navy);font-weight:700}
+  .sechead .n{font-size:12.5px;color:var(--muted)}
+  .rule{height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 12px);margin:0 0 16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .card{
+    display:flex;flex-direction:column;justify-content:space-between;gap:14px;
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 18px 14px;text-decoration:none;color:inherit;min-height:120px;
+    transition:.15s;
+  }
+  .card:hover{border-color:var(--brass);transform:translateY(-2px);box-shadow:0 6px 18px rgba(27,42,65,.07)}
+  .card .t{font-size:14.5px;font-weight:600;color:#22201C;letter-spacing:-.2px}
+  .card .meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .tag{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;padding:4px 10px;border-radius:999px}
+  .tag .dot{width:6px;height:6px;border-radius:50%}
+  .dur{font-size:11.5px;color:#6B6459;background:#F3EEE5;border-radius:999px;padding:4px 10px;white-space:nowrap}
+  .new{
+    font-size:10.5px;font-weight:700;letter-spacing:.5px;color:#fff;background:var(--brass);
+    border-radius:999px;padding:3px 8px;margin-left:6px;vertical-align:2px;
+  }
+  .note{font-size:11.5px;color:var(--muted);margin-top:4px}
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+  .empty{color:var(--muted);font-size:13.5px;padding:18px 2px}
+  @media(max-width:520px){ .wrap{padding:22px 14px 56px} .grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>유튜브 영상 분야별 모음</h1>
+    <p class="sub">
+      노션 <a href="https://app.notion.com/p/3849ad339e6181cc8253e0853868e5be" target="_blank" rel="noopener">‘유튜브 영상 분야별 모음’</a> 페이지에 저장된 영상을 분야별로 정리했습니다.
+      카드를 누르면 영상이 담긴 노션 페이지로 이동합니다. · 매주 월요일 아침 자동 갱신
+    </p>
+  </header>
+
+  <input id="q" type="search" placeholder="제목으로 검색해 보세요" autocomplete="off">
+  <div class="chips" id="chips"></div>
+  <div id="out"></div>
+
+  <footer>
+    마지막 갱신: <span id="synced"></span> · 총 <span id="total"></span>편 ·
+    새로 저장한 영상은 다음 갱신 때 자동으로 추가됩니다.
+  </footer>
+</div>
+
+<script>
+/* ===== 영상 데이터 (자동 갱신 영역 시작) ===== */
+const SYNCED_AT = "2026-08-02 12:45";
+const CATS = [
+  {k:"AI",       label:"AI",      color:"#C25E4A"},
+  {k:"로봇",     label:"로봇",    color:"#B08D57"},
+  {k:"과학",     label:"과학",    color:"#3E7C59"},
+  {k:"강의",     label:"강의",    color:"#3F6FA8"},
+  {k:"공부법",   label:"공부법",  color:"#5B8C5A"},
+  {k:"뇌과학",   label:"뇌과학",  color:"#C79A2E"},
+  {k:"시사·뉴스",label:"시사·뉴스",color:"#B34A3F"},
+  {k:"자동화",   label:"자동화",  color:"#6E6A63"}
+];
+// t=제목, i=노션 페이지 id, c=분야, d=길이(모르면 ""), a=목록에 들어온 날짜
+const VIDEOS = [
+  {t:"AI 선두주자였는데 왜 아직도 돈을 못 벌어요?｜크랩", i:"3849ad339e618102919cd75e79d217e8", c:"AI", d:"5:47", a:"2026-06-20"},
+  {t:"2026년, 사람들은 AI로 무엇을 하고 있을까? (feat. 하버드)", i:"3849ad339e61813cb8deeeb1228ee2be", c:"AI", d:"10:15", a:"2026-06-20"},
+  {t:"'클로드 디자인'은 디자이너의 일을 어떻게 바꾸고 있나", i:"3849ad339e6181e0881fe9ea2bdca3a6", c:"AI", d:"13:44", a:"2026-06-20"},
+  {t:"AI가 예측하는 5년 후의 미래: 2026년 오늘, 2031년을 내다보다.", i:"3879ad339e6181c991bfd7922cb9202d", c:"AI", d:"13:54", a:"2026-07-03"},
+  {t:"미토스 AI는 왜 전 세계 금융권을 긴급 소집하게 만들었나", i:"3849ad339e61815c944ad05c115c47cf", c:"AI", d:"14:58", a:"2026-06-20"},
+  {t:"AGI 시대에 살아남는 자들의 필살기 w/ 카이스트 김대식 교수", i:"3849ad339e61811fbee4c39db4e255db", c:"AI", d:"15:03", a:"2026-06-20"},
+  {t:"[카오스 짧강] 2026 카오스콘서트 예습하기: 컴퓨터비전과 딥러닝의 현재와 미래_PART 3", i:"38a9ad339e6181c6a5e4de95fe872aa9", c:"AI", d:"16:22", a:"2026-07-03"},
+  {t:"AGI 이후 5년, 인류가 마주할 것 — AI 2027 시나리오", i:"3849ad339e6181e1be8be85713597499", c:"AI", d:"17:09", a:"2026-06-20"},
+  {t:"[EBS x 한경협] \"AI, 이렇게 쓸 거면 쓰지 마세요\" 최고의 조수를 제대로 이용하는 현명한 사람들의 특징", i:"38e9ad339e618167a784d9d5d87d2684", c:"AI", d:"17:59", a:"2026-07-03"},
+  {t:"앤스로픽은 뭘 믿고 미국 정부와 한판 붙나", i:"3179ad339e6181a5bfbcfe7d04aa6bdf", c:"AI", d:"21:43", a:"2026-06-20"},
+  {t:"\"인간보다 10배 많아진다\", 2030년 800억 AI 에이전트 폭증의 미래", i:"3849ad339e61816b9e1bee1615c21c2f", c:"AI", d:"34:59", a:"2026-06-20"},
+  {t:"AI에게 국적을 묻다 [풀영상] | 창 543회 (KBS 26.4.7.)", i:"3409ad339e61818f8f22c462c610f2c3", c:"AI", d:"48:02", a:"2026-06-20"},
+  {t:"나의 완벽한 비서 - AI 에이전트 시대 [풀영상] | 창 540회 (KBS 26.3.17.)", i:"32a9ad339e6181038986eb0919f7aa06", c:"AI", d:"48:29", a:"2026-06-20"},
+  {t:"The Revolution Of AI | How It Will Change Everything", i:"3849ad339e6181449dbbc54423c566a5", c:"AI", d:"49:03", a:"2026-06-20"},
+  {t:"The Revolution Of AI | How It Will Change Everything", i:"3849ad339e6181e79d52c97f04d7a64d", c:"AI", d:"49:03", a:"2026-06-20"},
+  {t:"\"상상 못했던 일 벌어질 겁니다\" 천재들이 설계한 소름돋는 미래", i:"3849ad339e61817e925dc2ec3825dccc", c:"AI", d:"1:37:53", a:"2026-06-20"},
+  {t:"클로드 vs. 제미나이, AI 최고 강자는 누구인가? 구글, 앤트로픽 그리고 오픈AI가 불러 온 AI 가속의 시대", i:"3949ad339e61813ab92ec661235c42c4", c:"AI", d:"35:22", a:"2026-08-02"},
+  {t:"[오그랲 모아보기] 미국 정부와 맞선 AI? 앤트로픽이 꿈꾸는 미래 / 오그랲 / 비디오머그", i:"3949ad339e6181c8884bdfd4a98a4151", c:"AI", d:"45:26", a:"2026-08-02"},
+  {t:"[오그랲 모아보기] 미국 정부와 맞선 AI? 앤트로픽이 꿈꾸는 미래 / 오그랲 / 비디오머그", i:"3949ad339e6181038a66fa04b0d38f1b", c:"AI", d:"45:26", a:"2026-08-02"},
+  {t:"2029년 AI의 현실 — AI가 예측하는 3년 후 미래", i:"3a09ad339e61816aa50fe4b1e05971a4", c:"AI", d:"14:17", a:"2026-08-02"},
+  {t:"클로드 오퍼스5 출시⚡역대급 성능 + 가성비 미쳤다! AI 스톱모션 영상도 원클릭! 힉스필드", i:"3a89ad339e61813c93bff99ca7c0c4a5", c:"AI", d:"14:32", a:"2026-08-02"},
+
+  {t:"#ces2026 #hyundai #atlas #robot #bostondynamics", i:"3849ad339e6181c58efcfbe8b31c6f08", c:"로봇", d:"2:51", a:"2026-06-20"},
+  {t:"How does Atlas learn? | Inside the Lab | Boston Dynamics", i:"3849ad339e61815a873bd7cb51f65d8e", c:"로봇", d:"5:43", a:"2026-06-20"},
+  {t:"How does Atlas learn? | Inside the Lab | Boston Dynamics", i:"3849ad339e61816fb494fe15f52241f0", c:"로봇", d:"5:43", a:"2026-06-20"},
+  {t:"I Spent a Day With The World's First Humanoid Robot", i:"3849ad339e61814a914ed92946d3070e", c:"로봇", d:"11:42", a:"2026-06-20"},
+  {t:"\"로봇입니다만\" '헉!' 아틀라스와 전면전, 내 눈앞에 AI '훅' [핫이슈PLAY] MBC뉴스", i:"3849ad339e6181078226cc02ae51b740", c:"로봇", d:"11:54:59", a:"2026-06-20"},
+  {t:"미국의 자동차 공장. 전부 로봇으로 공장을 채웠더니", i:"3849ad339e6181ac8720eacef817a032", c:"로봇", d:"12:51", a:"2026-06-20"},
+  {t:"일할 사람 구하기 힘든... AI 로봇에게 일을 맡겨봤더니", i:"3849ad339e6181f3b514ebdf9a125c6a", c:"로봇", d:"13:14", a:"2026-06-20"},
+  {t:"세계가 놀란 한국의 놀라운 로봇 기술, 피지컬 AI", i:"3569ad339e6181fdb4f2e350e6cfd0bd", c:"로봇", d:"14:20", a:"2026-06-20"},
+  {t:"THESE 12 Robots Are So ADVANCED, Scientists Are SCARED!", i:"3849ad339e6181e79a20fb49bba77ca1", c:"로봇", d:"17:24", a:"2026-06-20"},
+  {t:"깜짝 공개된 현대차 '아틀라스'에 환호와 박수갈채", i:"3849ad339e618138901bc28cf16c6558", c:"로봇", d:"17:47", a:"2026-06-20"},
+  {t:"미국·중국도 못한 3가지 조건, 오직 한국만 로봇 전쟁에서 이길 수 있다", i:"3849ad339e6181099272e15426516edc", c:"로봇", d:"19:23", a:"2026-06-20"},
+  {t:"Japan's Next-Generation Humanoid Robots and Technologies", i:"3849ad339e618103a5b6ec964ec19753", c:"로봇", d:"21:24", a:"2026-06-20"},
+  {t:"로봇에 3,800가지의 스킬을 학습시켰더니... 조리 로봇 근황", i:"3219ad339e6181939249ee3065789110", c:"로봇", d:"38:49", a:"2026-06-20"},
+
+  {t:"AI가 마침내 나스카 지상화의 미스터리를 풀었다!?", i:"3849ad339e6181229ef8c4891c5631ee", c:"과학", d:"10:49", a:"2026-06-20"},
+  {t:"[과학책방 갈다] 화학 연대기 (장홍제 작가 인터뷰)", i:"3849ad339e6181ce9c20c89cf0f9ce4b", c:"과학", d:"12:56", a:"2026-06-20"},
+  {t:"사막에 거대한 그림을 새긴 진짜 이유, 2천 년 전 그들은 물에 미쳐 있었습니다", i:"3849ad339e6181ceb30ef03dbebc7aca", c:"과학", d:"18:19", a:"2026-06-20"},
+  {t:"\"외계인이 만들었다고요?\" 4,500년 만에 풀린 피라미드의 진짜 비밀", i:"3849ad339e6181e980e8ccf2f091ec47", c:"과학", d:"19:26", a:"2026-06-20"},
+  {t:"240억km 떨어진 골든레코드 속에 숨겨진 비밀", i:"3149ad339e6181fdb8b7dafd5bd355a9", c:"과학", d:"21:29", a:"2026-06-20"},
+  {t:"살다 살다, 이렇게 이해 잘되는 양자물리학이라니", i:"3849ad339e618167860dc606fb147a53", c:"과학", d:"31:52", a:"2026-06-20"},
+  {t:"다이아는 만드는데 금은 왜 못만들까? [화학 연대기] 1부", i:"3849ad339e618145ac20f88cff5a30f8", c:"과학", d:"1:04:42", a:"2026-06-20"},
+  {t:"화학이 현대의 연금술이라 불리는 이유 [화학 연대기] 2부", i:"3849ad339e61811aabffc64a381bea5f", c:"과학", d:"1:05:31", a:"2026-06-20"},
+  {t:"\"상상도 못한 빠른 속도\" AI로 신약 후보 물질 설계", i:"3849ad339e6181619712fdbc796e6dc5", c:"과학", d:"9:33:34", a:"2026-06-20"},
+  {t:"\"인류가 가라앉고 있다\" 전문가들의 섬뜩한 경고..지구가 바다에 잠긴다면", i:"3849ad339e6181919436cd100e63685f", c:"과학", d:"11:55:00", a:"2026-06-20"},
+  {t:"친가? 외가? 20만 명 분석으로 밝혀진 탈모 유전의 진짜 범인｜취미는 과학｜알고e즘", i:"3a39ad339e6181ca97a7e5ac34b548b1", c:"과학", d:"29:00", a:"2026-08-02"},
+  {t:"체질과 성격, 미래의 건강은 자궁 속 태아 발달 과정에서부터 결정된다? | 운명의 열쇠", i:"3a99ad339e6181199762ce5eda73d4c9", c:"과학", d:"46:46", a:"2026-08-02"},
+
+  {t:"[1강 무료보기] 다시, 화학ㅣ클래스e - 장홍제의 《화학의 연대기》", i:"3849ad339e6181b0a1d4ea803ec9170c", c:"강의", d:"27:27", a:"2026-06-20"},
+  {t:"세바시 강연 4천 편 만들어보니, 결국 인생은 '이것' 하나로 갈립니다 | 구범준 세바시 대표PD", i:"3a09ad339e6181d6a835d58ba7480708", c:"강의", d:"21:09", a:"2026-08-02"},
+  {t:"[EBS 특집 포럼] AI 시대, 나를 설계하는 교육 | 대한민국 교육의 미래를 묻다", i:"3a69ad339e618147a563d74b165bf574", c:"강의", d:"45:00", a:"2026-08-02"},
+  {t:"[EBS 특집 포럼] AI 시대, 나를 설계하는 교육 | 대한민국 교육의 미래를 묻다", i:"3a79ad339e6181d1802fcc3b4ace267f", c:"강의", d:"45:00", a:"2026-08-02"},
+
+  {t:"공부가 안 되는 건 당신 의지 탓이 아닙니다 (뇌과학적 팩트)", i:"3229ad339e618132ace1ca169caaebd3", c:"공부법", d:"8:25", a:"2026-06-20"},
+  {t:"기억력 좋아지는 법, 영양제보다 뇌과학자가 강조한 단 하나의 습관", i:"3849ad339e6181f5a000e7d65279639d", c:"공부법", d:"12:17", a:"2026-06-20"},
+  {t:"\"내 뇌를 내 마음대로 조종한다?\" 노력 없이 집중력을 2배로 만드는 법", i:"3149ad339e61818a9be4ee92f2fc634d", c:"공부법", d:"16:14", a:"2026-06-20"},
+  {t:"[EBS x 한경협] \"친절은 지능의 표현이다\" AI 시대에 살아남는 똑똑한 사람의 특징", i:"38e9ad339e61813eac8ccf8a2557de5f", c:"공부법", d:"18:04", a:"2026-07-03"},
+  {t:"\"고맙습니다\" 한마디면 모든 일이 술술 풀립니다!", i:"3219ad339e61811c8fb5c64a00ebf0b8", c:"공부법", d:"42:54", a:"2026-06-20"},
+  {t:"[Full] [특별기획] 다시, 읽기로 - 1부 읽기 도파민", i:"32d9ad339e618102827cea0326a6c933", c:"공부법", d:"48:00", a:"2026-06-20"},
+  {t:"[장송의 프리렌]으로 배우는 AI 시대 공부법 | 라플위클리 딥다이브 ep.08", i:"3939ad339e6181b59b56f19cc7362130", c:"공부법", d:"40:46", a:"2026-08-02"},
+
+  {t:"치매가 걱정된다면 꼭 하세요🧠 뇌인지과학 교수가 강조한 '이곳'을 키우는 가장 쉬운 방법⁉️ #유퀴즈", i:"3929ad339e6181198be8f95b0716471d", c:"뇌과학", d:"18:17", a:"2026-07-03"},
+  {t:"\"뇌가 확 살아난다\" 뇌과학자가 무조건 야외에서 독서하는 이유ㅣ(김대식 교수님 통합본)", i:"3929ad339e6181ca9a5eef8886d02fc4", c:"뇌과학", d:"58:35", a:"2026-07-03"},
+
+  {t:"AI가 만든 지옥 돈 내고 취직하는 미국", i:"3149ad339e6181009b1dc142a26d542c", c:"시사·뉴스", d:"12:29", a:"2026-06-20"},
+  {t:"[이슈] 전 세계 'AI 등불' 꺼버린 미국 \"우리만 쓴다\"", i:"3849ad339e6181859619c1b8bba146ae", c:"시사·뉴스", d:"13:53", a:"2026-06-20"},
+  {t:"당신 옆자리에 AI가 출근했다..로봇이 대신 일해 준다는데", i:"3849ad339e61812ba9e1fa438583b433", c:"시사·뉴스", d:"25:05", a:"2026-06-20"},
+  {t:"\"컴공 = 취업\" 공식은 깨졌다..당신의 일자리는 안녕한가요?", i:"3849ad339e618153a961c118ae42edba", c:"시사·뉴스", d:"25:30", a:"2026-06-20"},
+  {t:"\"미국이 설계하고, 대만이 만들고, 한국이 쌓는 냉혹한 반도체 생태계\"", i:"38a9ad339e618157bb04cd6576afec5e", c:"시사·뉴스", d:"33:47", a:"2026-07-03"},
+  {t:"\"빠르면 3년, 당신의 노동은 가치를 잃습니다\" AGI와 로봇이 가져올 노동의 종말", i:"3849ad339e61815087faf5f466a5dbac", c:"시사·뉴스", d:"34:00", a:"2026-06-20"},
+  {t:"취업난과 AI의 역습... '절대 대체되지 않는 인재'의 조건", i:"3849ad339e61814985f8c30e377088eb", c:"시사·뉴스", d:"41:27", a:"2026-06-20"},
+  {t:"\"3년 뒤 안전한 직업 없다\" AI시대 이런 사람들만 살아남습니다", i:"3179ad339e61813e9463d99dd0ec263d", c:"시사·뉴스", d:"49:38", a:"2026-06-20"},
+
+  {t:"나만 안 해 바이브 코딩... FOMO 극복을 위해 준비한 영상 / 오그랲 / 바디오머그", i:"3849ad339e6181d7846ade275800973c", c:"자동화", d:"12:21", a:"2026-06-20"},
+  {t:"99%가 아직 모르는 ChatGPT 워크. 화면만 녹화하면 100% 자동화로 구현됩니다", i:"3a39ad339e6181d49d25c71f582642df", c:"자동화", d:"36:27", a:"2026-08-02"}
+];
+/* ===== 영상 데이터 (자동 갱신 영역 끝) ===== */
+
+const NEW_DAYS = 7;
+const colorOf = k => (CATS.find(c => c.k === k) || {color:"#8A8175"}).color;
+
+function toSec(d){
+  if(!d) return 1e9;
+  const p = d.split(":").map(Number);
+  return p.length === 3 ? p[0]*3600 + p[1]*60 + p[2] : p[0]*60 + p[1];
+}
+function isNew(v){
+  const base = new Date(SYNCED_AT.slice(0,10) + "T00:00:00");
+  const added = new Date(v.a + "T00:00:00");
+  return (base - added) / 86400000 <= NEW_DAYS;
+}
+function esc(s){
+  return String(s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+}
+function card(v){
+  const c = colorOf(v.c);
+  return '<a class="card" href="https://app.notion.com/p/' + v.i + '" target="_blank" rel="noopener">' +
+    '<div class="t">' + esc(v.t) + (isNew(v) ? '<span class="new">NEW</span>' : '') + '</div>' +
+    '<div class="meta">' +
+      '<span class="tag" style="color:' + c + ';background:' + c + '14">' +
+        '<span class="dot" style="background:' + c + '"></span>' + esc(v.c) + '</span>' +
+      (v.d ? '<span class="dur">▶ ' + esc(v.d) + '</span>' : '') +
+    '</div></a>';
+}
+function section(title, color, items, note){
+  return '<section>' +
+    '<div class="sechead"><span class="dot" style="background:' + color + '"></span>' +
+    '<h2>' + esc(title) + '</h2><span class="n">' + items.length + '편</span></div>' +
+    (note ? '<div class="note">' + esc(note) + '</div>' : '') +
+    '<div class="rule"></div>' +
+    '<div class="grid">' + items.map(card).join("") + '</div></section>';
+}
+
+let active = "전체";
+
+function render(){
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const pool = VIDEOS.filter(v =>
+    (active === "전체" || v.c === active) &&
+    (!q || v.t.toLowerCase().includes(q))
+  );
+  const out = [];
+
+  if(active === "전체" && !q){
+    const fresh = VIDEOS.filter(isNew).sort((a,b) => b.a.localeCompare(a.a));
+    if(fresh.length) out.push(section("최근 추가", "#B08D57", fresh, "최근 " + NEW_DAYS + "일 안에 목록에 들어온 영상입니다."));
+  }
+  CATS.forEach(c => {
+    const items = pool.filter(v => v.c === c.k).sort((a,b) => toSec(a.d) - toSec(b.d));
+    if(items.length) out.push(section(c.label, c.color, items));
+  });
+
+  document.getElementById("out").innerHTML =
+    out.length ? out.join("") : '<div class="empty">조건에 맞는 영상이 없습니다.</div>';
+}
+
+function chips(){
+  const box = document.getElementById("chips");
+  const all = [{k:"전체", label:"전체", color:"#1B2A41"}].concat(CATS);
+  box.innerHTML = all.map(c => {
+    const n = c.k === "전체" ? VIDEOS.length : VIDEOS.filter(v => v.c === c.k).length;
+    return '<button class="chip' + (c.k === active ? " on" : "") + '" data-k="' + esc(c.k) + '">' +
+      '<span class="dot" style="background:' + c.color + '"></span>' + esc(c.label) +
+      '<span class="n">' + n + '</span></button>';
+  }).join("");
+  box.querySelectorAll(".chip").forEach(b => b.onclick = () => {
+    active = b.dataset.k;
+    chips();
+    render();
+  });
+}
+
+document.getElementById("q").addEventListener("input", render);
+document.getElementById("synced").textContent = SYNCED_AT;
+document.getElementById("total").textContent = VIDEOS.length;
+chips();
+render();
+</script>
+</body>
+</html>
