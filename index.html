@@ -57,7 +57,7 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 <div class="wrap">
   <header class="top">
     <h1>📰 오늘의 뉴스</h1>
-    <div class="date" id="date">2026년 8월 13일 (목)</div>
+    <div class="date" id="date">2026년 8월 14일 (금)</div>
     <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육 — 매일 오전 7시 자동 업데이트</div>
   </header>
 
@@ -71,45 +71,45 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 const SECTORS = [
   { key:"youth", name:"청소년", en:"Youth", color:"#f59e0b",
     items:[
-      { h:"화순청소년문화의집, 창의코딩 등 프로그램 수강생 모집", b:"진일보 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMib0FVX3lxTE9ESkN3MlVyWFdLSDFNaW9JRG1sX0V6Y1JIN1VhN0toeFdDMG51NmVGRDVqSHE5MHB0M2prLUR4amZKSnNQTE1KU1pQM1RoMTh0azJKMDZ1OGYwNm5yUGlPcjZWcldocUl0S1NscF8tYw?oc=5", srcName:"진일보", yt:"https://www.youtube.com/results?search_query=%ED%99%94%EC%88%9C%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EC%9D%98%EC%A7%91%2C%20%EC%B0%BD%EC%9D%98%EC%BD%94%EB%94%A9%20%EB%93%B1%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EC%88%98%EA%B0%95%EC%83%9D%20%EB%AA%A8%EC%A7%91" },
-      { h:"도봉구, ‘2026 청소년 아이디어 상품개발 경진대회 전시회’ 성황", b:"시사프리신문 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiWEFVX3lxTE9RcUZRSl81N2VxMUVjNFBTR3FMX2lRaGYyT0tNaWsySUk0SlhpZjFZaUo0T3U4RXJMek8tcEZERjhzZlZvSktVajNERG1MemwwaGZ4aXM0b1Y?oc=5", srcName:"시사프리신문", yt:"https://www.youtube.com/results?search_query=%EB%8F%84%EB%B4%89%EA%B5%AC%2C%20%E2%80%982026%20%EC%B2%AD%EC%86%8C%EB%85%84%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%20%EC%83%81%ED%92%88%EA%B0%9C%EB%B0%9C%20%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C%20%EC%A0%84%EC%8B%9C%ED%9A%8C%E2%80%99%20%EC%84%B1%ED%99%A9" }
+      { h:"마포구, 제11기 청소년 명예기자단 모집", b:"문화일보 · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiUEFVX3lxTE1hUkFqVFNWTUtlbDZOamU4eTJaMFVLRTlQV04xWWpkUUFTcUR2bjI3LTBsWi1uWWV0Nnh3dThMYkJqNVk2UXRkdmpRNkdXVnY0?oc=5", srcName:"문화일보", yt:"https://www.youtube.com/results?search_query=%EB%A7%88%ED%8F%AC%EA%B5%AC%2C%20%EC%A0%9C11%EA%B8%B0%20%EC%B2%AD%EC%86%8C%EB%85%84%20%EB%AA%85%EC%98%88%EA%B8%B0%EC%9E%90%EB%8B%A8%20%EB%AA%A8%EC%A7%91" },
+      { h:"계룡시학교밖청소년지원센터, 2차 문화·예술 체험 프로그램 「꿈드림 액티브 데이」 운영", b:"충청메시지 · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMia0FVX3lxTE1YbjZ0THhOVldGUHc2WV9LMnFfN2FFaHo3azNkRkhMR3dKMF9XQnR4TnlubnBkZjBSUEFUY0JfWWZRM0VlMVMyaHNSLUZGcm1NMzc4UmFGMEpSZVNtM0RvZEVISWg3b1ZZZ0xn?oc=5", srcName:"충청메시지", yt:"https://www.youtube.com/results?search_query=%EA%B3%84%EB%A3%A1%EC%8B%9C%ED%95%99%EA%B5%90%EB%B0%96%EC%B2%AD%EC%86%8C%EB%85%84%EC%A7%80%EC%9B%90%EC%84%BC%ED%84%B0%2C%202%EC%B0%A8%20%EB%AC%B8%ED%99%94%C2%B7%EC%98%88%EC%88%A0%20%EC%B2%B4%ED%97%98%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%E3%80%8C%EA%BF%88%EB%93%9C%EB%A6%BC%20%EC%95%A1%ED%8B%B0%EB%B8%8C%20%EB%8D%B0%EC%9D%B4%E3%80%8D%20%EC%9A%B4%EC%98%81" }
     ]},
   { key:"ai", name:"AI", en:"인공지능", color:"#8b5cf6",
     items:[
-      { h:"“AI에 묻지 마” 대신 “좋은 질문 만들어봐”… 수업이 달라졌다", b:"동아일보 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMidkFVX3lxTE1hRTRIZ3Flek5pUFBQM2JHRmExbUlYbC1WOHl3ZlEtQnBGQVJyQUgxSldPT3hEc09tZ0RFaGszVXQyWnowUS1lMUk5OFdPZ2ZfS0JVN2hGQkc1Z3pDS3hUMmRTWTVlckpZVEdvcnctX0lxY0hyOFE?oc=5", srcName:"동아일보", yt:"https://www.youtube.com/results?search_query=%E2%80%9CAI%EC%97%90%20%EB%AC%BB%EC%A7%80%20%EB%A7%88%E2%80%9D%20%EB%8C%80%EC%8B%A0%20%E2%80%9C%EC%A2%8B%EC%9D%80%20%EC%A7%88%EB%AC%B8%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B4%90%E2%80%9D%E2%80%A6%20%EC%88%98%EC%97%85%EC%9D%B4%20%EB%8B%AC%EB%9D%BC%EC%A1%8C%EB%8B%A4" },
-      { h:"자폐스펙트럼장애 AI 진단·경과 예측 가능성 열었다", b:"사이언스타임즈 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMijwFBVV95cUxQRXhSRUM0Zm5GbVl0MmJBWXVZZERfRWZabFdmQXZBWGpJU2ZGaDBTRUlfcTlEQk1sUWgyNGVBUkR2Z2NFUWxtRlFadXNlQy1CZmJKZ1NNa0xoZjlNSkcwN3lhZHhhVjU3YWFhYUtTN2hZOUh2d2RMN21qVHJrZXJQY1ZJY2VURFRaVk5aYmZ5dw?oc=5", srcName:"사이언스타임즈", yt:"https://www.youtube.com/results?search_query=%EC%9E%90%ED%8F%90%EC%8A%A4%ED%8E%99%ED%8A%B8%EB%9F%BC%EC%9E%A5%EC%95%A0%20AI%20%EC%A7%84%EB%8B%A8%C2%B7%EA%B2%BD%EA%B3%BC%20%EC%98%88%EC%B8%A1%20%EA%B0%80%EB%8A%A5%EC%84%B1%20%EC%97%B4%EC%97%88%EB%8B%A4" }
+      { h:"인공지능, 화석연료 채굴 활용 확대… 데이터센터 배출량의 13배 급증", b:"글로벌이코노믹 · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiiAFBVV95cUxNOEM2TmJCWUVFUU5IRURXaGhwbWRZSjhJRGdqQVk2QTNZLWZ0Tzk1OWZIcS1ScVdNdU84X3VRRFBLbENhd2NJcEEyZUl4Z1N1N0ZBeHVmV3B2OXNvQXc4SUR2QV9jblAwdzBIaHdlWnBpR0NXQW1zR01BdXdnWUxpTTd4dVVSR1I1?oc=5", srcName:"글로벌이코노믹", yt:"https://www.youtube.com/results?search_query=%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%2C%20%ED%99%94%EC%84%9D%EC%97%B0%EB%A3%8C%20%EC%B1%84%EA%B5%B4%20%ED%99%9C%EC%9A%A9%20%ED%99%95%EB%8C%80%E2%80%A6%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%84%BC%ED%84%B0%20%EB%B0%B0%EC%B6%9C%EB%9F%89%EC%9D%98%2013%EB%B0%B0%20%EA%B8%89%EC%A6%9D" },
+      { h:"한국장학재단, '인공지능(AI) 콜봇' 본격 가동", b:"포커스데일리 · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiZkFVX3lxTFBfVG9xVG5jcmZXd0haMUtQRmJvSmJSa2s1WThrcTVHd2RwalhKNXpaTEFja2JyVEJzOTZIeGItYTNMbTV5ZDAzMTlpMG9mZDRWcTFmZnNVcVN1YkNkdTI0UDJsX09vUQ?oc=5", srcName:"포커스데일리", yt:"https://www.youtube.com/results?search_query=%ED%95%9C%EA%B5%AD%EC%9E%A5%ED%95%99%EC%9E%AC%EB%8B%A8%2C%20%27%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%28AI%29%20%EC%BD%9C%EB%B4%87%27%20%EB%B3%B8%EA%B2%A9%20%EA%B0%80%EB%8F%99" }
     ]},
   { key:"science", name:"과학", en:"Science", color:"#0ea5e9",
     items:[
-      { h:"인공지능 시대에 필요한 학습과학연구 세미나 안내 - 전체 행사 - SNU 캘린더 - 서울대 소식", b:"서울대학교 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiZEFVX3lxTE44azV5R18wVU5TM3ZVVVluamNGVGx1dy1Rck9adEVCcVdudnBGUFptcFFlNmRTZnlDN1I0VjRlSldBU2xwYjA5QzRKSUcwTXBsQVBBZXl3TGlMWXR4emFpTmdMM18?oc=5", srcName:"서울대학교", yt:"https://www.youtube.com/results?search_query=%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%20%EC%8B%9C%EB%8C%80%EC%97%90%20%ED%95%84%EC%9A%94%ED%95%9C%20%ED%95%99%EC%8A%B5%EA%B3%BC%ED%95%99%EC%97%B0%EA%B5%AC%20%EC%84%B8%EB%AF%B8%EB%82%98%20%EC%95%88%EB%82%B4%20-%20%EC%A0%84%EC%B2%B4%20%ED%96%89%EC%82%AC%20-%20SNU%20%EC%BA%98%EB%A6%B0%EB%8D%94%20-%20%EC%84%9C%EC%9A%B8%EB%8C%80%20%EC%86%8C%EC%8B%9D" },
-      { h:"발전소 없는 호주의 원자력 기반…韓 연구로, 의료와 산업 잇는 전략 기지 돼야", b:"에너지안전신문 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiZEFVX3lxTE9CWWRoZE13Nkt0eVZ3dm10aGFFMTFqMExVYklQYksxQzNjNG5TM05RZkFzcWtnR0VsaDBjd2JtM01BcmZjSnN5bzkwYmdHN2RaSDJWNURVSEx2ZklLTE9wUjBzYnk?oc=5", srcName:"에너지안전신문", yt:"https://www.youtube.com/results?search_query=%EB%B0%9C%EC%A0%84%EC%86%8C%20%EC%97%86%EB%8A%94%20%ED%98%B8%EC%A3%BC%EC%9D%98%20%EC%9B%90%EC%9E%90%EB%A0%A5%20%EA%B8%B0%EB%B0%98%E2%80%A6%E9%9F%93%20%EC%97%B0%EA%B5%AC%EB%A1%9C%2C%20%EC%9D%98%EB%A3%8C%EC%99%80%20%EC%82%B0%EC%97%85%20%EC%9E%87%EB%8A%94%20%EC%A0%84%EB%9E%B5%20%EA%B8%B0%EC%A7%80%20%EB%8F%BC%EC%95%BC" }
+      { h:"[Who Is ?] 배충식 KAIST(한국과학기술원) 총장", b:"비즈니스포스트 · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMic0FVX3lxTFAtZGJQdUcyVVJlZGg5SjNseUlObm1BWHF1U0ptOUJoOV9WNGU2THNUdEpxWVl3dFJJeFl1UFEzTHQ1cmlscEdLaVRqcV9QUGdnYUpEdEhjamdHa0xKMWJvM1B2cDVwZjB6bXFtM3F2RTJSY1U?oc=5", srcName:"비즈니스포스트", yt:"https://www.youtube.com/results?search_query=%5BWho%20Is%20%3F%5D%20%EB%B0%B0%EC%B6%A9%EC%8B%9D%20KAIST%28%ED%95%9C%EA%B5%AD%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%9B%90%29%20%EC%B4%9D%EC%9E%A5" },
+      { h:"뇌 시냅스 절반 사라져도 ‘알짜배기 기억’은 남는다", b:"v.daum.net · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiT0FVX3lxTE1SbFdCc05SNS1HckhQZGVILXpsVm5rbDNqRjdkSFRxelo1R3Y1RS16VnRrMFo4V0xnUTlqOUkyZmJHSmxQUWozdzhiQXFIcWc?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%EB%87%8C%20%EC%8B%9C%EB%83%85%EC%8A%A4%20%EC%A0%88%EB%B0%98%20%EC%82%AC%EB%9D%BC%EC%A0%B8%EB%8F%84%20%E2%80%98%EC%95%8C%EC%A7%9C%EB%B0%B0%EA%B8%B0%20%EA%B8%B0%EC%96%B5%E2%80%99%EC%9D%80%20%EB%82%A8%EB%8A%94%EB%8B%A4" }
     ]},
   { key:"economy", name:"경제", en:"Economy", color:"#10b981",
     items:[
-      { h:"■ 8월 13일 목 경제 캘린더", b:"YTN · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiXkFVX3lxTE13MkdIXzExVk5jRkp2T2RxUEp2Y2lvamRoc3A1R21sOHM2M2tGUndhT1hEM055Y2VjNGU3UC1QNVE4RTdsY3BvTDJTMTJ6Rk5TNy1mLWt3eVk3ZHlnNVE?oc=5", srcName:"YTN", yt:"https://www.youtube.com/results?search_query=%E2%96%A0%208%EC%9B%94%2013%EC%9D%BC%20%EB%AA%A9%20%EA%B2%BD%EC%A0%9C%20%EC%BA%98%EB%A6%B0%EB%8D%94" },
-      { h:"‘중국 경제개혁’ 이끈 주룽지 전 총리 별세", b:"KBS 뉴스 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiW0FVX3lxTFA5RkUtTXJKaUZaamtvSjhMNFE3M1JBRUMzOGdLZE5YaUpuZDZtRmFDNHRwRGVBZm1CcWtPRUxTRHdNdUw1MkRjU0ZUX25kTG9mOVdoUU9KeEwtSWc?oc=5", srcName:"KBS 뉴스", yt:"https://www.youtube.com/results?search_query=%E2%80%98%EC%A4%91%EA%B5%AD%20%EA%B2%BD%EC%A0%9C%EA%B0%9C%ED%98%81%E2%80%99%20%EC%9D%B4%EB%81%88%20%EC%A3%BC%EB%A3%BD%EC%A7%80%20%EC%A0%84%20%EC%B4%9D%EB%A6%AC%20%EB%B3%84%EC%84%B8" }
+      { h:"경기도, ‘사회연대경제 청년 일경험’ 2차 참여 청년 140명 모집", b:"경기도뉴스포털 · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMihAFBVV95cUxNLXp2bFZNMVBjZE5Ddm9weWxKQlROdmU3RElMakY3dmpablZUWlVLcDlyd3o2R0c5c1U1Y1BKdnp2c3pXWTFEQlA0d0NzM0ZZTjJkV05yd0JiWGh5SWMyMWJFU3N1MTlWOHhDVm5NOWNNNFhKVzRQd0ZzZXpQLVB1RExsbU8?oc=5", srcName:"경기도뉴스포털", yt:"https://www.youtube.com/results?search_query=%EA%B2%BD%EA%B8%B0%EB%8F%84%2C%20%E2%80%98%EC%82%AC%ED%9A%8C%EC%97%B0%EB%8C%80%EA%B2%BD%EC%A0%9C%20%EC%B2%AD%EB%85%84%20%EC%9D%BC%EA%B2%BD%ED%97%98%E2%80%99%202%EC%B0%A8%20%EC%B0%B8%EC%97%AC%20%EC%B2%AD%EB%85%84%20140%EB%AA%85%20%EB%AA%A8%EC%A7%91" },
+      { h:"■ 8월 14일 금 경제 캘린더", b:"YTN · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiXkFVX3lxTE1EOXVXbm1kMlNZSzF0R2xBeUdMTU9RM19IVkJqVXF4dUVHQlItd1V1bTI4djFTYkpnZHVRSmJZZGc1ZFZyTzdSVGttRHplWHUtM1FWc3pCc2hnWm5vSlE?oc=5", srcName:"YTN", yt:"https://www.youtube.com/results?search_query=%E2%96%A0%208%EC%9B%94%2014%EC%9D%BC%20%EA%B8%88%20%EA%B2%BD%EC%A0%9C%20%EC%BA%98%EB%A6%B0%EB%8D%94" }
     ]},
   { key:"world", name:"국제", en:"World", color:"#ef4444",
     items:[
-      { h:"제14회 부산국제코미디페스티벌 오는 21일 개막", b:"연합뉴스TV · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE44d3VBZHBEcE9aN1VfRHNkcXJ0NTEyVEZ2dmtSRkw3emNGMkFYeTIwc3hGcmV4LWZpRTkzMG1YLWdfb1BHNklyQTVGaTNFMjdNc1ZrMm95eWMzeGx1YVQzVG04X2JTbGc?oc=5", srcName:"연합뉴스TV", yt:"https://www.youtube.com/results?search_query=%EC%A0%9C14%ED%9A%8C%20%EB%B6%80%EC%82%B0%EA%B5%AD%EC%A0%9C%EC%BD%94%EB%AF%B8%EB%94%94%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C%20%EC%98%A4%EB%8A%94%2021%EC%9D%BC%20%EA%B0%9C%EB%A7%89" },
-      { h:"[알립니다] 32회 韓日 국제환경상 9월 10일까지 접수 마감", b:"조선일보 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMilwFBVV95cUxOdlA2cXJ0M29wbGFVaFlJQlhLeVdLMlVyWm5mNDlVYzJWTTFUSGttR1FGSEo3MjI2cmtUYmdvanc4a3ZRY05wVHNLZEF1a0ZCOXZpblYyOVFJVkFCOUtGUm9TaUhBcEhoRlJ4QmttNXVETW10b0lQc2c0QTdseHR1WjZ0cG1SdjhhQXV0dFBlbDl1T2RIdHlJ?oc=5", srcName:"조선일보", yt:"https://www.youtube.com/results?search_query=%5B%EC%95%8C%EB%A6%BD%EB%8B%88%EB%8B%A4%5D%2032%ED%9A%8C%20%E9%9F%93%E6%97%A5%20%EA%B5%AD%EC%A0%9C%ED%99%98%EA%B2%BD%EC%83%81%209%EC%9B%94%2010%EC%9D%BC%EA%B9%8C%EC%A7%80%20%EC%A0%91%EC%88%98%20%EB%A7%88%EA%B0%90" }
+      { h:"국제유가, '석유 수요 감소' IEA 전망에 하락", b:"TBS 서울 · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiiAFBVV95cUxOazJON1d3WXMtX2hwOFcxTi1vZVN1WmdHMjd0VDFvdjNUZ0tVdWxqQmFKTlBIMUR1T1gyS2M2aVo4TldKYUVlUjdDczhHOTZMZmVIS0pVeE9nRkU2UEpNcGx1U0MyQzJkaEg5WW04NEZxNC1BLXdoN2YybkRiV2Z1NVFSTHZBTjF2?oc=5", srcName:"TBS 서울", yt:"https://www.youtube.com/results?search_query=%EA%B5%AD%EC%A0%9C%EC%9C%A0%EA%B0%80%2C%20%27%EC%84%9D%EC%9C%A0%20%EC%88%98%EC%9A%94%20%EA%B0%90%EC%86%8C%27%20IEA%20%EC%A0%84%EB%A7%9D%EC%97%90%20%ED%95%98%EB%9D%BD" },
+      { h:"국제유가, '석유 수요 감소' IEA 전망 속 하락 마감⋯WTI 2.4%↓", b:"아이뉴스24 · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiS0FVX3lxTFB3M1ZHM3BLR0pfSHdxQ0hPTHJYVVkyVDRoYXlsMkpIdFNzMXhCSE93bkN5Z25CeDBEejhQUkpEY1Z5Z0tWak1yWVRRTQ?oc=5", srcName:"아이뉴스24", yt:"https://www.youtube.com/results?search_query=%EA%B5%AD%EC%A0%9C%EC%9C%A0%EA%B0%80%2C%20%27%EC%84%9D%EC%9C%A0%20%EC%88%98%EC%9A%94%20%EA%B0%90%EC%86%8C%27%20IEA%20%EC%A0%84%EB%A7%9D%20%EC%86%8D%20%ED%95%98%EB%9D%BD%20%EB%A7%88%EA%B0%90%E2%8B%AFWTI%202.4%25%E2%86%93" }
     ]},
   { key:"education", name:"교육", en:"Education", color:"#ec4899",
     items:[
-      { h:"[인천 교육 돋보기] 학생·시민 참여형 학교", b:"v.daum.net · 8월 12일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiT0FVX3lxTFBuQjE2X3pYS0ZLQ2JwaklqNFRSc3VzQy1uWDJMRHZIZUpYc3lobzdjaVo4UTNwOWdwSDM5RzlOcElQa0Utd1VRN3dNcHo2d2M?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%5B%EC%9D%B8%EC%B2%9C%20%EA%B5%90%EC%9C%A1%20%EB%8F%8B%EB%B3%B4%EA%B8%B0%5D%20%ED%95%99%EC%83%9D%C2%B7%EC%8B%9C%EB%AF%BC%20%EC%B0%B8%EC%97%AC%ED%98%95%20%ED%95%99%EA%B5%90" },
-      { h:"경기도의회 장승희 의원, 사립 덕소고 현장 점검, 학생 교육 공간의 디지털 인프라 구축, 사립·공립 형평성으로 접근해야!", b:"뉴스 따옴 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMickFVX3lxTFBQZ3RFRzR0cTBzY09IVGFFamFSUF84M0FqbGsyWUpwNUcyQTUwN2hJZnNjRk85aUtuT1hjSXh2QkVCZy1xRlhvU21Gcmg1RUdIWTZXSVppdWJEVjI5dmxHVFFwTXlJVWVpSGV3R0NRVEY1Z9IBckFVX3lxTFBQZ3RFRzR0cTBzY09IVGFFamFSUF84M0FqbGsyWUpwNUcyQTUwN2hJZnNjRk85aUtuT1hjSXh2QkVCZy1xRlhvU21Gcmg1RUdIWTZXSVppdWJEVjI5dmxHVFFwTXlJVWVpSGV3R0NRVEY1Zw?oc=5", srcName:"뉴스 따옴", yt:"https://www.youtube.com/results?search_query=%EA%B2%BD%EA%B8%B0%EB%8F%84%EC%9D%98%ED%9A%8C%20%EC%9E%A5%EC%8A%B9%ED%9D%AC%20%EC%9D%98%EC%9B%90%2C%20%EC%82%AC%EB%A6%BD%20%EB%8D%95%EC%86%8C%EA%B3%A0%20%ED%98%84%EC%9E%A5%20%EC%A0%90%EA%B2%80%2C%20%ED%95%99%EC%83%9D%20%EA%B5%90%EC%9C%A1%20%EA%B3%B5%EA%B0%84%EC%9D%98%20%EB%94%94%EC%A7%80%ED%84%B8%20%EC%9D%B8%ED%94%84%EB%9D%BC%20%EA%B5%AC%EC%B6%95%2C%20%EC%82%AC%EB%A6%BD%C2%B7%EA%B3%B5%EB%A6%BD%20%ED%98%95%ED%8F%89%EC%84%B1%EC%9C%BC%EB%A1%9C%20%EC%A0%91%EA%B7%BC%ED%95%B4%EC%95%BC%21" }
+      { h:"국교위, ‘학교시민교육 기본원칙안’ 수정 조건 의결", b:"조선일보 · 8월 13일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMihwFBVV95cUxNMk1kUEFBX0c3N0Fob3kwazFPekhzN3lEUlEzX3RtRnVPSTVlVS1STTdTY1FmNTZ0cUpCbkUtRUdyaGYyQXE2T0x3LXJvWm5uekMydVdXQmFlVlNYSW0zbjAtTEpTQnN5eklBQ054SDlZcWI0Rk5ObHJjU3ZQZ0dNVWkwSTNza0E?oc=5", srcName:"조선일보", yt:"https://www.youtube.com/results?search_query=%EA%B5%AD%EA%B5%90%EC%9C%84%2C%20%E2%80%98%ED%95%99%EA%B5%90%EC%8B%9C%EB%AF%BC%EA%B5%90%EC%9C%A1%20%EA%B8%B0%EB%B3%B8%EC%9B%90%EC%B9%99%EC%95%88%E2%80%99%20%EC%88%98%EC%A0%95%20%EC%A1%B0%EA%B1%B4%20%EC%9D%98%EA%B2%B0" },
+      { h:"이주현 도의원, 안성 교육 현안 릴레이 점검...학교 신설·학생 배치 논의", b:"전주일보 · 8월 14일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMibEFVX3lxTE5XN1o2NTVCbXpUWFZKemp2Z3dveUJYZHJ1TllsYzF6ZUdVdUNQeG5uN0FBeHptLVhFa3NHLThiaTZ2R2ZsWE8zSDkxSFVPVVBrWXBiNFE1Z05xVGJHMVBpYm1JOXp2WURUZDRHNA?oc=5", srcName:"전주일보", yt:"https://www.youtube.com/results?search_query=%EC%9D%B4%EC%A3%BC%ED%98%84%20%EB%8F%84%EC%9D%98%EC%9B%90%2C%20%EC%95%88%EC%84%B1%20%EA%B5%90%EC%9C%A1%20%ED%98%84%EC%95%88%20%EB%A6%B4%EB%A0%88%EC%9D%B4%20%EC%A0%90%EA%B2%80...%ED%95%99%EA%B5%90%20%EC%8B%A0%EC%84%A4%C2%B7%ED%95%99%EC%83%9D%20%EB%B0%B0%EC%B9%98%20%EB%85%BC%EC%9D%98" }
     ]}
 ];
 
