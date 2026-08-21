@@ -1,11 +1,18 @@
 name: daily-news
 on:
   schedule:
-    - cron: '0 22 * * *'   # 07:00 KST
-    - cron: '0 0 * * *'    # 09:00 KST (재시도; 이미 오늘분이면 스크립트가 변경 안 함)
+    # 스크립트가 "오늘 + 전 분야 성공"일 때만 건너뛰므로, 아침에 일부 분야가
+    # 막혔으면 아래 재시도들이 그 분야만 다시 채운다.
+    - cron: '0 22 * * *'   # 07:00 KST (본 실행)
+    - cron: '30 23 * * *'  # 08:30 KST (재시도)
+    - cron: '0 1 * * *'    # 10:00 KST (재시도)
+    - cron: '0 4 * * *'    # 13:00 KST (마지막 재시도)
   workflow_dispatch:        # 저장소 Actions 탭에서 수동 실행 가능
 permissions:
   contents: write
+concurrency:
+  group: daily-news
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,16 +21,35 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      # 종료 코드: 0 = 갱신함 / 2 = 갱신할 것 없음 / 1 = 전면 실패
       - name: Build news
-        run: python build_news.py
+        id: build
+        run: |
+          set +e
+          python build_news.py
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" = "1" ]; then
+            echo "::error::모든 뉴스 소스 수집에 실패했습니다. 기존 페이지를 그대로 두고 다음 재시도를 기다립니다."
+          fi
+          exit 0
+
       - name: Commit if changed
+        if: steps.build.outputs.code == '0'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if git diff --quiet -- index.html; then
-            echo "No change (already today's news)"
+            echo "No change"
           else
             git add index.html
             git commit -m "뉴스 자동 업데이트 (Actions) $(TZ=Asia/Seoul date +%Y-%m-%d)"
+            git pull --rebase --autostash || true
             git push
           fi
+
+      # 전면 실패한 날은 잡을 빨간불로 남겨 알림이 가게 한다(페이지는 건드리지 않음).
+      - name: Fail the job if every source was blocked
+        if: steps.build.outputs.code == '1'
+        run: exit 1
