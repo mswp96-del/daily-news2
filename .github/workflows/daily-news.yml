@@ -15,6 +15,7 @@ on:
   workflow_dispatch:        # 저장소 Actions 탭에서 수동 실행 가능
 permissions:
   contents: write
+  pages: write
 concurrency:
   group: daily-news
   cancel-in-progress: false
@@ -52,6 +53,24 @@ jobs:
             git commit -m "뉴스 자동 업데이트 (Actions) $(TZ=Asia/Seoul date +%Y-%m-%d)"
             git pull --rebase --autostash || true
             git push
+          fi
+
+      # GitHub가 봇 푸시의 Pages 자동 배포를 가끔 빠뜨린다(2026-09-15 사례).
+      # 매 실행마다 "배포된 커밋 == main 최신 커밋"인지 확인하고 다르면 재배포를 요청한다.
+      - name: Ensure GitHub Pages is deployed from latest main
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch -q origin main
+          head=$(git rev-parse origin/main)
+          deployed=$(gh api "repos/${{ github.repository }}/pages/builds/latest" --jq '.commit' 2>/dev/null || echo "unknown")
+          echo "main=$head / pages=$deployed"
+          if [ "$deployed" != "$head" ]; then
+            echo "Pages가 최신 main과 다릅니다. 재배포를 요청합니다."
+            gh api --method POST "repos/${{ github.repository }}/pages/builds"
+          else
+            echo "Pages는 이미 최신입니다."
           fi
 
       # 전면 실패한 날은 잡을 빨간불로 남겨 알림이 가게 한다(페이지는 건드리지 않음).
