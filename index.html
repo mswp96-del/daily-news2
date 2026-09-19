@@ -57,7 +57,7 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 <div class="wrap">
   <header class="top">
     <h1>📰 오늘의 뉴스</h1>
-    <div class="date" id="date">2026년 9월 19일 (토)</div>
+    <div class="date" id="date">2026년 9월 20일 (일)</div>
     <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육 — 매일 오전 7시 자동 업데이트</div>
   </header>
 
@@ -71,45 +71,45 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 const SECTORS = [
   { key:"youth", name:"청소년", en:"Youth", color:"#f59e0b",
     items:[
-      { h:"제주여성가족연구원 “아동·청소년 온라인 안전, 플랫폼 설계부터”", b:"womennews.co.kr · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMic0FVX3lxTE94eW8wd0ZLaXRGSDNHYndXdE9SMDRfSWk3ajJ2QTFWSzA1d3BjczdkcTVwQzhTUFV3OVNWRDY2RDZKc2VQQ0Y5dHJWR204Rmd5Ync1QzdacWhDb2NRdHJ5UlZONExpSEJYYXR1NTg4ZlpZd3PSAXNBVV95cUxPeHlvMHdGS2l0RkgzR2J3V3RPUjA0X0lpN2oydkExVkswNXdwY3M3ZHE1cEM4U1BVdzlTVkQ2NkQ2SnNlUENGOXRyVkdtOEZneWJ3NUM3WnFoQ29jUXRyeVJWTjRMaUhCWGF0dTU4OGZaWXdz?oc=5", srcName:"womennews.co.kr", yt:"https://www.youtube.com/results?search_query=%EC%A0%9C%EC%A3%BC%EC%97%AC%EC%84%B1%EA%B0%80%EC%A1%B1%EC%97%B0%EA%B5%AC%EC%9B%90%20%E2%80%9C%EC%95%84%EB%8F%99%C2%B7%EC%B2%AD%EC%86%8C%EB%85%84%20%EC%98%A8%EB%9D%BC%EC%9D%B8%20%EC%95%88%EC%A0%84%2C%20%ED%94%8C%EB%9E%AB%ED%8F%BC%20%EC%84%A4%EA%B3%84%EB%B6%80%ED%84%B0%E2%80%9D" },
-      { h:"“오늘은 내가 구의원”…노원구의회, 청소년 모의의회 운영", b:"dailyguard.co.kr · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMicEFVX3lxTFBtd3V4Qk5jX1ZiYkhQNjVna25FZktoakdiRnd6WGM3RHdOU0lwRVljUnhaSlJhTGE3bFRZNlNCbEI0WlpYNVVFVDhEUWd0QzMyT1hXQ19lSEJ1NzFYQlpDWGNJb2VpZ2RiZHFEYzloa1E?oc=5", srcName:"dailyguard.co.kr", yt:"https://www.youtube.com/results?search_query=%E2%80%9C%EC%98%A4%EB%8A%98%EC%9D%80%20%EB%82%B4%EA%B0%80%20%EA%B5%AC%EC%9D%98%EC%9B%90%E2%80%9D%E2%80%A6%EB%85%B8%EC%9B%90%EA%B5%AC%EC%9D%98%ED%9A%8C%2C%20%EC%B2%AD%EC%86%8C%EB%85%84%20%EB%AA%A8%EC%9D%98%EC%9D%98%ED%9A%8C%20%EC%9A%B4%EC%98%81" }
+      { h:"증평군 학교밖청소년지원센터, 청소년 50여명에게 추석 선물 전달", b:"뉴스1 · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiX0FVX3lxTE1WVXZENU9KbEotMmxoN051WThVWkpyLU5BemdiTGhPREYtRThHTlNqemdXOTRMUXQ5OF9MV3dLN1Q0RHdvUVE1VU1CT0t1Q0VVTldfcWgwd05hcm9vTzhv0gFkQVVfeXFMTXZ5Rlo0RHVNWFIzNC1YdjBkcUxKY0hUbWphSGpfa2QzaVdlM3BUdU1ySER2UjkwYTFrMV9fMGJZVHBjVzFoM3ZjTnZvaDZNSy1qTVVWOWRMYlNrMjFIVk9hcWpFZg?oc=5", srcName:"뉴스1", yt:"https://www.youtube.com/results?search_query=%EC%A6%9D%ED%8F%89%EA%B5%B0%20%ED%95%99%EA%B5%90%EB%B0%96%EC%B2%AD%EC%86%8C%EB%85%84%EC%A7%80%EC%9B%90%EC%84%BC%ED%84%B0%2C%20%EC%B2%AD%EC%86%8C%EB%85%84%2050%EC%97%AC%EB%AA%85%EC%97%90%EA%B2%8C%20%EC%B6%94%EC%84%9D%20%EC%84%A0%EB%AC%BC%20%EC%A0%84%EB%8B%AC" },
+      { h:"예천군청소년문화의집, 청소년 ‘예술여행’으로 창의력 키워", b:"예천연합뉴스 · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiaEFVX3lxTE1BQVAwWW96ZkVRRVJUUmNVQ2ptZEtsd1dHUUlmUlQ1TE8tQTRpN3ZWT3hmQldWOThTb2FmNVlpaS0tLU9ncUppOE5vV1dZR1k5Z19lR0RCZ2xZVThIanRNUDFiRVVRT3Bj?oc=5", srcName:"예천연합뉴스", yt:"https://www.youtube.com/results?search_query=%EC%98%88%EC%B2%9C%EA%B5%B0%EC%B2%AD%EC%86%8C%EB%85%84%EB%AC%B8%ED%99%94%EC%9D%98%EC%A7%91%2C%20%EC%B2%AD%EC%86%8C%EB%85%84%20%E2%80%98%EC%98%88%EC%88%A0%EC%97%AC%ED%96%89%E2%80%99%EC%9C%BC%EB%A1%9C%20%EC%B0%BD%EC%9D%98%EB%A0%A5%20%ED%82%A4%EC%9B%8C" }
     ]},
   { key:"ai", name:"AI", en:"인공지능", color:"#8b5cf6",
     items:[
-      { h:"[토요칼럼] 인공지능의 브레이크는 누가 밟나", b:"한국경제 · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiWkFVX3lxTE5COU8zeHBtYjhvdzhneDBtZWZXTWo4bHRfRkhaOFdCV05wTk9sN25hcVdoR3ZxQ0g0ZXdmUnRSVWJlVWpudGR0bG44bi1CR2IzTFlLYWU2ajRPQQ?oc=5", srcName:"한국경제", yt:"https://www.youtube.com/results?search_query=%5B%ED%86%A0%EC%9A%94%EC%B9%BC%EB%9F%BC%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98%20%EB%B8%8C%EB%A0%88%EC%9D%B4%ED%81%AC%EB%8A%94%20%EB%88%84%EA%B0%80%20%EB%B0%9F%EB%82%98" },
-      { h:"[편집장 칼럼 #095] 인공지능의 고삐, 지금 쥐지 않으면 다시 잡기 어렵습니다", b:"캐어유 뉴스 · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMibkFVX3lxTE56S1A5eWJ4cUE3VXQtVXFScFNwN3U5dWtNUm5RZmw4NFYyU0htLTZtZUFndjZOUWlFdGVmNkRDS0l0VTVpVkNlc3NDX2VPZU12NDBKYTVQRno4Mm1QSWZoS096RmgwNkwtR1k4UTJ3?oc=5", srcName:"캐어유 뉴스", yt:"https://www.youtube.com/results?search_query=%5B%ED%8E%B8%EC%A7%91%EC%9E%A5%20%EC%B9%BC%EB%9F%BC%20%23095%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98%20%EA%B3%A0%EC%82%90%2C%20%EC%A7%80%EA%B8%88%20%EC%A5%90%EC%A7%80%20%EC%95%8A%EC%9C%BC%EB%A9%B4%20%EB%8B%A4%EC%8B%9C%20%EC%9E%A1%EA%B8%B0%20%EC%96%B4%EB%A0%B5%EC%8A%B5%EB%8B%88%EB%8B%A4" }
+      { h:"'실종자 수색 빨라진다'...인공지능이 CCTV 분석하는 기술 개발", b:"YTN · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiXkFVX3lxTFBIaC1NQlJndWNwMi1rMlZEeDVxV1pmRzFsMFJwSDBRZWplaUlhbXRCX3RNMVlhNE92QS1xRzI2bFRHMFZYZVhOenlKUjZ6WTBiMUY1UjlubjhJREpDX2c?oc=5", srcName:"YTN", yt:"https://www.youtube.com/results?search_query=%27%EC%8B%A4%EC%A2%85%EC%9E%90%20%EC%88%98%EC%83%89%20%EB%B9%A8%EB%9D%BC%EC%A7%84%EB%8B%A4%27...%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%B4%20CCTV%20%EB%B6%84%EC%84%9D%ED%95%98%EB%8A%94%20%EA%B8%B0%EC%88%A0%20%EA%B0%9C%EB%B0%9C" },
+      { h:"트럼프 '인공지능 대신 최고지능 어떠냐'…온라인 설문 부쳐", b:"연합뉴스 · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiW0FVX3lxTE44UjZBYU5FektDNFgwZTVVOWRQNlVQODJQLXlkMFpQdEFrV2hhc1lCcFQxMzcwR1V3R3AzbUhjQ2FsQTFwVjNPMnphSWdsaW5XSkkydDFDT05JSE3SAWBBVV95cUxPUVloWEpIbUcyUERfcUdwV2w2bGVoYm9zbVowYkFrenItV3V6RG55S2t0czFtRHdINS1SUHJ5OUZkNDJwNVZQYi02U25tSFZEcU5MUU94WlVELUotUWdqejU?oc=5", srcName:"연합뉴스", yt:"https://www.youtube.com/results?search_query=%ED%8A%B8%EB%9F%BC%ED%94%84%20%22%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%20%EB%8C%80%EC%8B%A0%20%EC%B5%9C%EA%B3%A0%EC%A7%80%EB%8A%A5%20%EC%96%B4%EB%96%A0%EB%83%90%22%E2%80%A6%EC%98%A8%EB%9D%BC%EC%9D%B8%20%EC%84%A4%EB%AC%B8%20%EB%B6%80%EC%B3%90" }
     ]},
   { key:"science", name:"과학", en:"Science", color:"#0ea5e9",
     items:[
-      { h:"앤트로픽, 생명과학 AI 빗장 푼다…‘고위험 연구’까지 허용", b:"인공지능신문 · 9월 18일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE13b0QxazJ5WlM1SWV2WUkzZDVyeVNwamZ6VzBET1VwcmtsMURGOWJfZ3hjOGJQYm54MnF2eDRMb0VMZFNNRlFoWXd6TTIyU3U3ZE02UFF3M3V0TWZ2YzV2TTdJcGV6VEk?oc=5", srcName:"인공지능신문", yt:"https://www.youtube.com/results?search_query=%EC%95%A4%ED%8A%B8%EB%A1%9C%ED%94%BD%2C%20%EC%83%9D%EB%AA%85%EA%B3%BC%ED%95%99%20AI%20%EB%B9%97%EC%9E%A5%20%ED%91%BC%EB%8B%A4%E2%80%A6%E2%80%98%EA%B3%A0%EC%9C%84%ED%97%98%20%EC%97%B0%EA%B5%AC%E2%80%99%EA%B9%8C%EC%A7%80%20%ED%97%88%EC%9A%A9" },
-      { h:"사회과학 교육 및 연구における 인공지능: 기회와 과제.", b:"Vietnam.vn · 9월 18일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMipAFBVV95cUxOTXFnZzhyX0dpeWQtUXc3MGhQM2dwZ2l4cTZlV1ZKOUdJeXlTSUNIQmtUNDJFeUc4NWFNRkFlZUpFY3Jnb0d0Qm5tQzlXLVgzVElzWlY4NFk1RVZjSjF4eFl1bWdCa0tVRFpteUFyOGhtWWFQWDNjWGJRVWFhLU9vTmQwWWZGeUpYanFVUXBpYmxQaXVQTWhXNTh1M1ExNWZvNWdWMg?oc=5", srcName:"Vietnam.vn", yt:"https://www.youtube.com/results?search_query=%EC%82%AC%ED%9A%8C%EA%B3%BC%ED%95%99%20%EA%B5%90%EC%9C%A1%20%EB%B0%8F%20%EC%97%B0%EA%B5%AC%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%3A%20%EA%B8%B0%ED%9A%8C%EC%99%80%20%EA%B3%BC%EC%A0%9C." }
+      { h:"김익재 한국과학기술연구원 AI·로봇연구소장, 피지컬 AI 강국, 결국 '사람'에 달렸다", b:"씨원뉴스 · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBPUlZJSEpud3RXcUJSRU1CY1ZFaVR3QWpLYUhpYl8zRTV0UXJXQS1Dd1o1UDFVTnBXaUtiLW0xQldjQVBobkxrR29kOUZMcWc3ZGQ4NFo2d3lmYkttUVE1T3JyWjM4M1E?oc=5", srcName:"씨원뉴스", yt:"https://www.youtube.com/results?search_query=%EA%B9%80%EC%9D%B5%EC%9E%AC%20%ED%95%9C%EA%B5%AD%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%97%B0%EA%B5%AC%EC%9B%90%20AI%C2%B7%EB%A1%9C%EB%B4%87%EC%97%B0%EA%B5%AC%EC%86%8C%EC%9E%A5%2C%20%ED%94%BC%EC%A7%80%EC%BB%AC%20AI%20%EA%B0%95%EA%B5%AD%2C%20%EA%B2%B0%EA%B5%AD%20%27%EC%82%AC%EB%9E%8C%27%EC%97%90%20%EB%8B%AC%EB%A0%B8%EB%8B%A4" },
+      { h:"대전시교육청, 미래 과학자 육성 국외 연구단지 체험 성료 > 뉴스", b:"thekorea.kr · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMicEFVX3lxTE9iNjhlVHFDNzd5eGE4b1IwWGFIRkktZmNmcmdlck1kdTl1azNCNGJOc1FZSnZZOTdCbDZ5XzBnTzBQVFg1eVo0R3RjMUdXVmQ4TU8tel9oZkNxQU04MkJfMTNxSW1aU3FhVTZXS3dzNko?oc=5", srcName:"thekorea.kr", yt:"https://www.youtube.com/results?search_query=%EB%8C%80%EC%A0%84%EC%8B%9C%EA%B5%90%EC%9C%A1%EC%B2%AD%2C%20%EB%AF%B8%EB%9E%98%20%EA%B3%BC%ED%95%99%EC%9E%90%20%EC%9C%A1%EC%84%B1%20%EA%B5%AD%EC%99%B8%20%EC%97%B0%EA%B5%AC%EB%8B%A8%EC%A7%80%20%EC%B2%B4%ED%97%98%20%EC%84%B1%EB%A3%8C%20%3E%20%EB%89%B4%EC%8A%A4" }
     ]},
   { key:"economy", name:"경제", en:"Economy", color:"#10b981",
     items:[
-      { h:"경제회복 이끈 'AI 전도사' 구윤철…'약해진 경제사령탑'은 숙제로", b:"연합인포맥스 · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMicEFVX3lxTFB2cFJNZlo4cXFnOElhdnNaejJqRFdPektUcy0yaUo4Zmh3OUVzQzdDM09Ycm5iQ1RKd0h1Zk5nMGFBSU1Ka0thTk1UaHd1WjBpYmJObDM5NGRvWEk0V05TS0JuTHE0eHl3clk5X0VpTE8?oc=5", srcName:"연합인포맥스", yt:"https://www.youtube.com/results?search_query=%EA%B2%BD%EC%A0%9C%ED%9A%8C%EB%B3%B5%20%EC%9D%B4%EB%81%88%20%27AI%20%EC%A0%84%EB%8F%84%EC%82%AC%27%20%EA%B5%AC%EC%9C%A4%EC%B2%A0%E2%80%A6%27%EC%95%BD%ED%95%B4%EC%A7%84%20%EA%B2%BD%EC%A0%9C%EC%82%AC%EB%A0%B9%ED%83%91%27%EC%9D%80%20%EC%88%99%EC%A0%9C%EB%A1%9C" },
-      { h:"BBC '북한판 전세 '대부동거', 황해도서 확산'", b:"SPN 서울평양뉴스 · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMia0FVX3lxTE1CQ1NrckU2TkhtWTYzbF85QXlzdHdlNG9TczFLdnFsUEYwLVJHejBxczlOS04zdjctbkthRVYxX1RwN0JpanByZGxFNUl1VHZRdW1PRkRMYzFaVDdZMkxVNm1vYzhMMWtnOC1j?oc=5", srcName:"SPN 서울평양뉴스", yt:"https://www.youtube.com/results?search_query=BBC%20%22%EB%B6%81%ED%95%9C%ED%8C%90%20%EC%A0%84%EC%84%B8%20%27%EB%8C%80%EB%B6%80%EB%8F%99%EA%B1%B0%27%2C%20%ED%99%A9%ED%95%B4%EB%8F%84%EC%84%9C%20%ED%99%95%EC%82%B0%22" }
+      { h:"美경제 견조한데 소비심리 바닥…골드만삭스 '행복감 저하 탓'", b:"연합뉴스 · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiW0FVX3lxTE03QjlKUmxpZXVhcm1mSVdRRmpXUUNYcVlIcjRYMEdHbS0zdENaZVpDdE1ONzJ5eWZqeWFyWmRNMm4waklfbGstOE5PTWNxU2NFNDY3anl1bmt4bk3SAWBBVV95cUxONHZKaVBjQlNVOUlhMEttdS1PSllOWGNDRDVoTzlEck9ob1VtSVV3V1VXZFNCWHE1NGFEQkh2VDVkdy1tMXJXZ2FwWEU1bW5UR3R1SWk1MHJDVnpXSUMxX2U?oc=5", srcName:"연합뉴스", yt:"https://www.youtube.com/results?search_query=%E7%BE%8E%EA%B2%BD%EC%A0%9C%20%EA%B2%AC%EC%A1%B0%ED%95%9C%EB%8D%B0%20%EC%86%8C%EB%B9%84%EC%8B%AC%EB%A6%AC%20%EB%B0%94%EB%8B%A5%E2%80%A6%EA%B3%A8%EB%93%9C%EB%A7%8C%EC%82%AD%EC%8A%A4%20%22%ED%96%89%EB%B3%B5%EA%B0%90%20%EC%A0%80%ED%95%98%20%ED%83%93%22" },
+      { h:"삼성전기(009150)", b:"매일경제 마켓 · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMilwFBVV95cUxQSWduMW1DZ3I5SUprSUlqWVlucHM5NEprYW93TWhZLWV1S0ZvOGliM2dxdDlZb0pnNTJLOC1YbEsteXExekxMc0FaQWRnYkhMZUM5cF9UM3lJLVBCNlBXaWFqOXRrZHY5V1FrdFdyTzJGUnB0UTZZcUZ1TnNUdEhzZEFGQWVsLWE1bGVQVjIyWGZLNHVtNE5v?oc=5", srcName:"매일경제 마켓", yt:"https://www.youtube.com/results?search_query=%EC%82%BC%EC%84%B1%EC%A0%84%EA%B8%B0%28009150%29" }
     ]},
   { key:"world", name:"국제", en:"World", color:"#ef4444",
     items:[
-      { h:"“한국 디지털 경험, 국제규범에 도움”", b:"lawtimes.co.kr · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMickFVX3lxTE5jOTVRUjY1TThYMVdjZS1VLWJyREs2UktMdGFaX19pUUNyejdNVFdOVVlvLW1yZU9RcEdLSGMteGNvazRlTDhLRkphbmZIaHV3dWdmMWttSHFyUmtFOGdydFJkZ2FGalYwSVdpcXNkZ1NpUdIBckFVX3lxTE5jOTVRUjY1TThYMVdjZS1VLWJyREs2UktMdGFaX19pUUNyejdNVFdOVVlvLW1yZU9RcEdLSGMteGNvazRlTDhLRkphbmZIaHV3dWdmMWttSHFyUmtFOGdydFJkZ2FGalYwSVdpcXNkZ1NpUQ?oc=5", srcName:"lawtimes.co.kr", yt:"https://www.youtube.com/results?search_query=%E2%80%9C%ED%95%9C%EA%B5%AD%20%EB%94%94%EC%A7%80%ED%84%B8%20%EA%B2%BD%ED%97%98%2C%20%EA%B5%AD%EC%A0%9C%EA%B7%9C%EB%B2%94%EC%97%90%20%EB%8F%84%EC%9B%80%E2%80%9D" },
-      { h:"국제유가, 사우디 공급 차질 우려 완화에 사흘째 하락", b:"연합뉴스 · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiW0FVX3lxTFBkaTI0ZFdkZ25tOWc0LWwzSjN1RFBzRWZCU01XYm5GaVF2RS00RXhJTU1WNDNuNnJOUDN3dXgwT25ORWxlQUdWLVN4eml0ZXNFSDdwVzNpcE1Za1nSAWBBVV95cUxPaU5heWYzYWg3VjZKMUF2OXJ0cXJwcjBvaU1LZ3Zad1hnaXlSNWxZa0hIYk42c0FwYWNFT3hBbm1aaWJpT1ZMTmFCUUdBZF84M2hCYXU4T3B1dUtLUXNsRDg?oc=5", srcName:"연합뉴스", yt:"https://www.youtube.com/results?search_query=%EA%B5%AD%EC%A0%9C%EC%9C%A0%EA%B0%80%2C%20%EC%82%AC%EC%9A%B0%EB%94%94%20%EA%B3%B5%EA%B8%89%20%EC%B0%A8%EC%A7%88%20%EC%9A%B0%EB%A0%A4%20%EC%99%84%ED%99%94%EC%97%90%20%EC%82%AC%ED%9D%98%EC%A7%B8%20%ED%95%98%EB%9D%BD" }
+      { h:"세계 탈춤에 선유줄불놀이까지…안동국제탈춤페스티벌 24일 개막", b:"연합뉴스 · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiW0FVX3lxTFBicUdWUm1NMnVXUzFpTmRERktDOGo2MGx1U3V6bnRVc3EzX2hPOE4xQWlqWUpvbVN1RG9WQVY5Y29OMXQ4VUhROUp4LTg4NUtmWFJLY2tLRHZrZlXSAWBBVV95cUxPTVg1cHE2M0YzeENwWktxOVJTVVhlWWxtLWhuWnU1OVg0b0tMUGV0c2tIak5mTjh1SmVUc0Z1c25kSENHRTY5RS0wa2x4a3haUXBjNFhtZG0xV2tLREp6OWU?oc=5", srcName:"연합뉴스", yt:"https://www.youtube.com/results?search_query=%EC%84%B8%EA%B3%84%20%ED%83%88%EC%B6%A4%EC%97%90%20%EC%84%A0%EC%9C%A0%EC%A4%84%EB%B6%88%EB%86%80%EC%9D%B4%EA%B9%8C%EC%A7%80%E2%80%A6%EC%95%88%EB%8F%99%EA%B5%AD%EC%A0%9C%ED%83%88%EC%B6%A4%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C%2024%EC%9D%BC%20%EA%B0%9C%EB%A7%89" },
+      { h:"'AI통제불능' 경고, 유엔총회 무대로…국제 안전장치 마련 논의", b:"v.daum.net · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiT0FVX3lxTE81Q1EzbG50VlZ2SDlqWjNKT3MyMk9MR29sSXNmLTFPS2pkU0JTSTBPUDAwWVdiZGMxcUxrM2gtaEpxTTlQTXFwSkRyYkNVaEU?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%27AI%ED%86%B5%EC%A0%9C%EB%B6%88%EB%8A%A5%27%20%EA%B2%BD%EA%B3%A0%2C%20%EC%9C%A0%EC%97%94%EC%B4%9D%ED%9A%8C%20%EB%AC%B4%EB%8C%80%EB%A1%9C%E2%80%A6%EA%B5%AD%EC%A0%9C%20%EC%95%88%EC%A0%84%EC%9E%A5%EC%B9%98%20%EB%A7%88%EB%A0%A8%20%EB%85%BC%EC%9D%98" }
     ]},
   { key:"education", name:"교육", en:"Education", color:"#ec4899",
     items:[
-      { h:"교육청 등록했는데 벌금 9000만원…‘뒷북 행정’에 우는 대안학교", b:"중앙일보 · 9월 19일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiVkFVX3lxTE1TaXBOLXhhQ1gxQ21tekd0RDJ5YW43VVBtdVlMbEx1Rmk2cklqenJuYWRDYm9zUElHWTZtYTQ1cHp6YV9rRHlvMEl1dVRkVVotaTY3Z2RB?oc=5", srcName:"중앙일보", yt:"https://www.youtube.com/results?search_query=%EA%B5%90%EC%9C%A1%EC%B2%AD%20%EB%93%B1%EB%A1%9D%ED%96%88%EB%8A%94%EB%8D%B0%20%EB%B2%8C%EA%B8%88%209000%EB%A7%8C%EC%9B%90%E2%80%A6%E2%80%98%EB%92%B7%EB%B6%81%20%ED%96%89%EC%A0%95%E2%80%99%EC%97%90%20%EC%9A%B0%EB%8A%94%20%EB%8C%80%EC%95%88%ED%95%99%EA%B5%90" },
-      { h:"제주에서 배우는 글로벌 교육, 학교 현장의 변화로 이어진다", b:"뉴스N제주 · 9월 18일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMibEFVX3lxTFBoNWxpTmYxWkhjTkI5OFBXZ3ZVM1g5Nzg1TnBBRXVQOTNrMndoa3p6aVRkR3FTS3N0c1BCdnNfUUxLYnZoUzNsb0M2TjlpQVVVZWtwQzRhYWJSTFpQcHlsUkRWNVVWYnNBclBueQ?oc=5", srcName:"뉴스N제주", yt:"https://www.youtube.com/results?search_query=%EC%A0%9C%EC%A3%BC%EC%97%90%EC%84%9C%20%EB%B0%B0%EC%9A%B0%EB%8A%94%20%EA%B8%80%EB%A1%9C%EB%B2%8C%20%EA%B5%90%EC%9C%A1%2C%20%ED%95%99%EA%B5%90%20%ED%98%84%EC%9E%A5%EC%9D%98%20%EB%B3%80%ED%99%94%EB%A1%9C%20%EC%9D%B4%EC%96%B4%EC%A7%84%EB%8B%A4" }
+      { h:"충북교육청, 추석 연휴기간 교육기관(학교) 주차장 무료 개방 : 네이버 블로그", b:"Naver Blog · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMijwFBVV95cUxOZVlJc2lZcVhVdVBUYXhJbGwyaFFGVVJwb0U3NWVJTWd0NW1fWllXazBhNUVhaUhHUWkzRmstaUc0MzZkUGpNalFXaWUzbU1GYjBuZm8xODR1ZG9YNGtqNkdwZjg4VVMzUUM1OHlJelVLRFE2TG5mMkxpMS1TNko1OHFTNW1yQlhqNE1fUE5acw?oc=5", srcName:"Naver Blog", yt:"https://www.youtube.com/results?search_query=%EC%B6%A9%EB%B6%81%EA%B5%90%EC%9C%A1%EC%B2%AD%2C%20%EC%B6%94%EC%84%9D%20%EC%97%B0%ED%9C%B4%EA%B8%B0%EA%B0%84%20%EA%B5%90%EC%9C%A1%EA%B8%B0%EA%B4%80%28%ED%95%99%EA%B5%90%29%20%EC%A3%BC%EC%B0%A8%EC%9E%A5%20%EB%AC%B4%EB%A3%8C%20%EA%B0%9C%EB%B0%A9%20%3A%20%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" },
+      { h:"서초구 우리동네돌봄단 ‘찾아가는 복지학교’ 역량 강화 교육", b:"헤럴드경제 · 9월 20일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiVkFVX3lxTE5VS3gtUDladWN3RjlxYzVRNWhCTDROM0hTQjd2WlI2Ykc1U2Z6OTlFeU5kendrVUhWY2U1Y0hMX2FiZWRjNVFSeUlOYU4talNFVjJDenRB?oc=5", srcName:"헤럴드경제", yt:"https://www.youtube.com/results?search_query=%EC%84%9C%EC%B4%88%EA%B5%AC%20%EC%9A%B0%EB%A6%AC%EB%8F%99%EB%84%A4%EB%8F%8C%EB%B4%84%EB%8B%A8%20%E2%80%98%EC%B0%BE%EC%95%84%EA%B0%80%EB%8A%94%20%EB%B3%B5%EC%A7%80%ED%95%99%EA%B5%90%E2%80%99%20%EC%97%AD%EB%9F%89%20%EA%B0%95%ED%99%94%20%EA%B5%90%EC%9C%A1" }
     ]}
 ];
 
@@ -166,6 +166,6 @@ function setFilter(key){
 
 render();
 </script>
-<!-- news-build: {"date": "2026-09-19", "at": "08:53", "ok": 6, "stale": []} -->
+<!-- news-build: {"date": "2026-09-20", "at": "08:54", "ok": 6, "stale": []} -->
 </body>
 </html>
