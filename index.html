@@ -57,7 +57,7 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 <div class="wrap">
   <header class="top">
     <h1>📰 오늘의 뉴스</h1>
-    <div class="date" id="date">2026년 9월 27일 (일)</div>
+    <div class="date" id="date">2026년 9월 28일 (월)</div>
     <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육 — 매일 오전 7시 자동 업데이트</div>
   </header>
 
@@ -71,45 +71,45 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 const SECTORS = [
   { key:"youth", name:"청소년", en:"Youth", color:"#f59e0b",
     items:[
-      { h:"멕시코 청소년들과의 만남", b:"대한민국 청와대 · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiY0FVX3lxTE1OOXFQb2pMN3ZaU1lWZHJUZ2pTZnV5TWJ3bWNNTHB2aEJ1Tm1TcXNfN0RjcmZrdng3OFd5bjg0RXFoRDhEQ0VmMU50UHJMeGFkdDVKYU1JRmRQb0djY2J5MlhGZw?oc=5", srcName:"대한민국 청와대", yt:"https://www.youtube.com/results?search_query=%EB%A9%95%EC%8B%9C%EC%BD%94%20%EC%B2%AD%EC%86%8C%EB%85%84%EB%93%A4%EA%B3%BC%EC%9D%98%20%EB%A7%8C%EB%82%A8" },
-      { h:"끊이지 않는 청소년 사이버도박… 올해 267명 검거 - 조선비즈", b:"Chosunbiz · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiigFBVV95cUxOTGwxamlpY1NTMWtIR3ZZWFJrbXpZWmdZYjBULVZQWGRTZnU4WV9UYWFIc081azdmbzdONzllVEdrSlFtUFN6THVDYXJmdlQ0ZVRTeEs0R25GeWlPN29YWlVMS25CN2FJdzk5SXhwWHI5OHdkRFN4NFNHc3FDeXhMVUxpRks4Q09fRVHSAZ4BQVVfeXFMTlhCMk81WnpRcU9sUng3eVQ1Tmh6UjM1MnN6VlJ0RlltRnNqejFsQjFkUzNZQm51c2tZc3doR0R3WEZKWHlTQ3ZGd2NxYV9VTDJTVnYyeW5OLWtXRktvdTNPS0xkQ2JnZ2FSbW15VnlXVXA1TGktWVdBc2ZmdGpDY0wwVnQ2Z2RXWmowcmFFX2ZNcnJvTmV5UjlXeG1qTFE?oc=5", srcName:"Chosunbiz", yt:"https://www.youtube.com/results?search_query=%EB%81%8A%EC%9D%B4%EC%A7%80%20%EC%95%8A%EB%8A%94%20%EC%B2%AD%EC%86%8C%EB%85%84%20%EC%82%AC%EC%9D%B4%EB%B2%84%EB%8F%84%EB%B0%95%E2%80%A6%20%EC%98%AC%ED%95%B4%20267%EB%AA%85%20%EA%B2%80%EA%B1%B0%20-%20%EC%A1%B0%EC%84%A0%EB%B9%84%EC%A6%88" }
+      { h:"중랑구, 위기 청소년 함께 살피는 지역안전망 구축", b:"문화일보 · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiUEFVX3lxTFBRNXNTQVg3QXhwMjRVM2Zmd0s2YmVYRFIyNlBGVE1YbzNfd29VcGZBaGVKR0VLc3pMYTlYdnRVUE12WDBNYjFWd1FMMDd1SERI?oc=5", srcName:"문화일보", yt:"https://www.youtube.com/results?search_query=%EC%A4%91%EB%9E%91%EA%B5%AC%2C%20%EC%9C%84%EA%B8%B0%20%EC%B2%AD%EC%86%8C%EB%85%84%20%ED%95%A8%EA%BB%98%20%EC%82%B4%ED%94%BC%EB%8A%94%20%EC%A7%80%EC%97%AD%EC%95%88%EC%A0%84%EB%A7%9D%20%EA%B5%AC%EC%B6%95" },
+      { h:"항바이러스 치료에도 간암 위험 제각각", b:"monews.co.kr · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMia0FVX3lxTE40QkFicEtmeGYtUzBRNTlqeVMzdjdvTm1YN1Jpb19PN0xvU2ptbmxvNVlUYWkwWVdZMXltaGp1cWhseG9FTFdiRWNEc2hySHNUd3NLVjM5cG5HNXEyamVsTk9jbEVEUHlzVFZn?oc=5", srcName:"monews.co.kr", yt:"https://www.youtube.com/results?search_query=%ED%95%AD%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4%20%EC%B9%98%EB%A3%8C%EC%97%90%EB%8F%84%20%EA%B0%84%EC%95%94%20%EC%9C%84%ED%97%98%20%EC%A0%9C%EA%B0%81%EA%B0%81" }
     ]},
   { key:"ai", name:"AI", en:"인공지능", color:"#8b5cf6",
     items:[
-      { h:"장애인기업종합지원센터, 발달장애인, 인공지능으로 창업 아이디어 구체화", b:"이코노미톡뉴스 · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMibEFVX3lxTE9nd2dOMWNydlFsOHkweV8yV1NLMG5LWWhURGxKeFhZZEwwUHZtR19FRjdJQnJsUzh5WTNhZkZITVE3b0twSmxfa3huYWdnRnJZelY0WmFkOEhoR2NsaUF5UUwxYXFBR0lZY1BHUQ?oc=5", srcName:"이코노미톡뉴스", yt:"https://www.youtube.com/results?search_query=%EC%9E%A5%EC%95%A0%EC%9D%B8%EA%B8%B0%EC%97%85%EC%A2%85%ED%95%A9%EC%A7%80%EC%9B%90%EC%84%BC%ED%84%B0%2C%20%EB%B0%9C%EB%8B%AC%EC%9E%A5%EC%95%A0%EC%9D%B8%2C%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9C%BC%EB%A1%9C%20%EC%B0%BD%EC%97%85%20%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%20%EA%B5%AC%EC%B2%B4%ED%99%94" },
-      { h:"대구시, 로봇·바이오·헬스 중심 인공지능전환 혁신 기술개발 착수", b:"v.daum.net · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiVEFVX3lxTE5hZUhPbzZKVTgzanRkN2RjMDJNdlpxSnVCQWV1NE1EY3g2ZUR2aTAxQ0ZlOVM2Wkc0UEwwT3ZaU1Q1MUY4aHlhYTZuSEp4WVFOeUdRdA?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%EB%8C%80%EA%B5%AC%EC%8B%9C%2C%20%EB%A1%9C%EB%B4%87%C2%B7%EB%B0%94%EC%9D%B4%EC%98%A4%C2%B7%ED%97%AC%EC%8A%A4%20%EC%A4%91%EC%8B%AC%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%A0%84%ED%99%98%20%ED%98%81%EC%8B%A0%20%EA%B8%B0%EC%88%A0%EA%B0%9C%EB%B0%9C%20%EC%B0%A9%EC%88%98" }
+      { h:"[김대호 인물] 제프리 힌턴 '인공지능 AI 아버지' ...엔비디아 젠슨황과의 전쟁?", b:"글로벌이코노믹 · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiiAFBVV95cUxOcXUxc1UyOWs0ZWw2c3hrMjZEX1BIQWprWmJTeXlmUmdDX2RlZThmQkxlblcwZlRxc01qYVE3a19Gb09VTC1CYm9lYnMzeTlDczA4enRfcVJ0YS1KQ3B1eUtLOTBYdUJtb0FnbXJRMWRhWVRBSl9IMGtFOS15c3pQaDdOaHBjRF9p?oc=5", srcName:"글로벌이코노믹", yt:"https://www.youtube.com/results?search_query=%5B%EA%B9%80%EB%8C%80%ED%98%B8%20%EC%9D%B8%EB%AC%BC%5D%20%EC%A0%9C%ED%94%84%EB%A6%AC%20%ED%9E%8C%ED%84%B4%20%22%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%20AI%20%EC%95%84%EB%B2%84%EC%A7%80%22%20...%EC%97%94%EB%B9%84%EB%94%94%EC%95%84%20%EC%A0%A0%EC%8A%A8%ED%99%A9%EA%B3%BC%EC%9D%98%20%EC%A0%84%EC%9F%81%3F" },
+      { h:"AI도 아프다?... ‘고통’ 반응 키우니 사용자 피해 있어도 ‘진통 버튼’ 선택", b:"조선일보 · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMigwFBVV95cUxOWXBHd3pFSHN6VVU4UmhiLWMzN3ZScjdlX0tMT0c2Q0pIajBOakwzbkFUOUJXZkFBNkZGdThDN0NzajJEd0NsbnAwSVQwcFdZMVVDbVFlTGJlc2hnMERJLWd5RnczQTlybUFVcU93cUlCMld2UWs0N09pSWh6TEN4b05uUQ?oc=5", srcName:"조선일보", yt:"https://www.youtube.com/results?search_query=AI%EB%8F%84%20%EC%95%84%ED%94%84%EB%8B%A4%3F...%20%E2%80%98%EA%B3%A0%ED%86%B5%E2%80%99%20%EB%B0%98%EC%9D%91%20%ED%82%A4%EC%9A%B0%EB%8B%88%20%EC%82%AC%EC%9A%A9%EC%9E%90%20%ED%94%BC%ED%95%B4%20%EC%9E%88%EC%96%B4%EB%8F%84%20%E2%80%98%EC%A7%84%ED%86%B5%20%EB%B2%84%ED%8A%BC%E2%80%99%20%EC%84%A0%ED%83%9D" }
     ]},
   { key:"science", name:"과학", en:"Science", color:"#0ea5e9",
     items:[
-      { h:"경북도, 미래 첨단산업 글로벌 협력확대", b:"세명일보 · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMicEFVX3lxTE5hc1N5b095c3o0YU1keUw0WkRqMGh4Rko0Zk0zZndYTlZtM2FqUDMzZmlVazdYSHdkYmwycmpFQ3VFa2NNeWZRYXpPb1VZY1E2eUFOZjdBRUtzWVFqSXNxUzN5aEF1cUd5S3hQOGc2NEs?oc=5", srcName:"세명일보", yt:"https://www.youtube.com/results?search_query=%EA%B2%BD%EB%B6%81%EB%8F%84%2C%20%EB%AF%B8%EB%9E%98%20%EC%B2%A8%EB%8B%A8%EC%82%B0%EC%97%85%20%EA%B8%80%EB%A1%9C%EB%B2%8C%20%ED%98%91%EB%A0%A5%ED%99%95%EB%8C%80" },
-      { h:"인공지능 시대에 적응하고 발전하기 위해 과학과 교육 분야에서 혁신을 이루어냅니다.", b:"Vietnam.vn · 9월 26일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMimwFBVV95cUxQSHh4Y0dsMHVHVHpIZm9mQk1RWS1Sc0JTN2lEOV8zT2Exa2J4ZE5hb2U4RC1sLW1qUVo0dldkRUNQbUJTQkJqOExVRGhqSThDVUZ3NmJ3MXRnRXRWRUxUeXU1MXJDWFYtdXl6RnJTQlp0dE50cmRnRlBRdDFWVzVGNXpTcXpIRGlzTy0xbmpJa2t1STdTN0E4cmRtQQ?oc=5", srcName:"Vietnam.vn", yt:"https://www.youtube.com/results?search_query=%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%20%EC%8B%9C%EB%8C%80%EC%97%90%20%EC%A0%81%EC%9D%91%ED%95%98%EA%B3%A0%20%EB%B0%9C%EC%A0%84%ED%95%98%EA%B8%B0%20%EC%9C%84%ED%95%B4%20%EA%B3%BC%ED%95%99%EA%B3%BC%20%EA%B5%90%EC%9C%A1%20%EB%B6%84%EC%95%BC%EC%97%90%EC%84%9C%20%ED%98%81%EC%8B%A0%EC%9D%84%20%EC%9D%B4%EB%A3%A8%EC%96%B4%EB%83%85%EB%8B%88%EB%8B%A4." }
+      { h:"과학 연구와 비즈니스 요구사항을 연결합니다.", b:"Vietnam.vn · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMif0FVX3lxTE1MN2JvamtWZnY1SGR4YWpTenJmeWRYOXN0MHpyNUY1RUt4cFZzVTE5R2hyZzZWY0VBQkpyNHNtR3N2bGpjV1VFeGtXRUdtMmtjeWVNZ2Z6dEFaZ2tXekMwX1ZtRkNpbXA1NTAxdWdDdEVGLURFdmtaNUprOU9uWW8?oc=5", srcName:"Vietnam.vn", yt:"https://www.youtube.com/results?search_query=%EA%B3%BC%ED%95%99%20%EC%97%B0%EA%B5%AC%EC%99%80%20%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%EC%9D%84%20%EC%97%B0%EA%B2%B0%ED%95%A9%EB%8B%88%EB%8B%A4." },
+      { h:"북한 “교육자문이 곧 교육정보사업이다”", b:"nkeconomy.com · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMibkFVX3lxTE1wMFV4ZW5XM0N4M1g2VW1JcFQwTFMwVWhNZGpZc2JSX1p6YlkxRno1QnNLRW5lNVgyMnlmUXVTcVExRXNMZWRZTmNMOTc2T0M3bVBlTF85RnZRMDMtTmJPaktJa2VWaWtyczdiZGhR0gFuQVVfeXFMTXAwVXhlblczQ3gzWDZVbUlwVDBMUzBVaE1kallzYlJfWnpiWTFGejVCc0tFbmU1WDIyeWZRdVNxUTFFc0xlZFlOY0w5NzZPQzdtUGVMXzlGdlEwMy1OYk9qS0lrZVZpa3JzN2JkaFE?oc=5", srcName:"nkeconomy.com", yt:"https://www.youtube.com/results?search_query=%EB%B6%81%ED%95%9C%20%E2%80%9C%EA%B5%90%EC%9C%A1%EC%9E%90%EB%AC%B8%EC%9D%B4%20%EA%B3%A7%20%EA%B5%90%EC%9C%A1%EC%A0%95%EB%B3%B4%EC%82%AC%EC%97%85%EC%9D%B4%EB%8B%A4%E2%80%9D" }
     ]},
   { key:"economy", name:"경제", en:"Economy", color:"#10b981",
     items:[
-      { h:"원주시, 10월 3일 '사회적경제컴퍼니'…ESG·민관협력 확대", b:"v.daum.net · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiT0FVX3lxTFBISm5TazlqR1Nhd2N0LWNIVjBqWEhhSUVaYm0wd2JtUnAxWHEzbWJwMlRHMXBEMG96eVFfYm52aVlWTUZZd2kyVlJIclQ4ajg?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%EC%9B%90%EC%A3%BC%EC%8B%9C%2C%2010%EC%9B%94%203%EC%9D%BC%20%27%EC%82%AC%ED%9A%8C%EC%A0%81%EA%B2%BD%EC%A0%9C%EC%BB%B4%ED%8D%BC%EB%8B%88%27%E2%80%A6ESG%C2%B7%EB%AF%BC%EA%B4%80%ED%98%91%EB%A0%A5%20%ED%99%95%EB%8C%80" },
-      { h:"경제는 역대급 호황인데 생각보다 심각한 대만 현지상황", b:"연합인포맥스 · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMicEFVX3lxTE4zbTI5dDh2ekRPUlFEb3pfVUx6WndtSVh4dVVqekFkRFg5cTVLNk4talFuZ0NtUl9PYkFPcFdaSHNzOC1ILTNVRkxhb2hTSS1xSXpqYVJkMzV6WFdiSndycHV1M0RmZXVfVC1ibm8xNE3SAXRBVV95cUxQODFyaWNQTGJyeDdpem1Da3ZIVk10a0FqakVFOF9kelBwcmZfWk5Fd0dUR056UjZyY0I0dmg0S1gzZnM4OTlWdFdxNDFaTnE1MkZTTkRlNUlrdV8ycGhzSjhWMHJPUGR5MU9zWmZtLUYwdERZUA?oc=5", srcName:"연합인포맥스", yt:"https://www.youtube.com/results?search_query=%EA%B2%BD%EC%A0%9C%EB%8A%94%20%EC%97%AD%EB%8C%80%EA%B8%89%20%ED%98%B8%ED%99%A9%EC%9D%B8%EB%8D%B0%20%EC%83%9D%EA%B0%81%EB%B3%B4%EB%8B%A4%20%EC%8B%AC%EA%B0%81%ED%95%9C%20%EB%8C%80%EB%A7%8C%20%ED%98%84%EC%A7%80%EC%83%81%ED%99%A9" }
+      { h:"[스타트 경제] 미중 정상회담, 빅딜은 없어...더 어려워진 한국의 선택은?", b:"YTN · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiXkFVX3lxTFAxbmNJY29OZ1VXWER1THhqVDE0MUlBazBKVlVVS2Vva2Z0YzNTU29RbkVDUkg4LXRCRXdDcGdJamJvQzNFU0JNZFA0c1pUYUdVcUR2a3Q1MF9vNGJGLVE?oc=5", srcName:"YTN", yt:"https://www.youtube.com/results?search_query=%5B%EC%8A%A4%ED%83%80%ED%8A%B8%20%EA%B2%BD%EC%A0%9C%5D%20%EB%AF%B8%EC%A4%91%20%EC%A0%95%EC%83%81%ED%9A%8C%EB%8B%B4%2C%20%EB%B9%85%EB%94%9C%EC%9D%80%20%EC%97%86%EC%96%B4...%EB%8D%94%20%EC%96%B4%EB%A0%A4%EC%9B%8C%EC%A7%84%20%ED%95%9C%EA%B5%AD%EC%9D%98%20%EC%84%A0%ED%83%9D%EC%9D%80%3F" },
+      { h:"한·멕시코, 경제협력 강화…비즈니스 포럼도 개최", b:"연합뉴스TV · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE91b0ZwN1Z1RFk4OFRObzFWZ2dPaU9ybGI1VUNSVjFWbDN4ZmlqUURrbTVRREZCMFZNZlN4Z0d3ZmpHQTh1b3FNYlYxN2F2WUU3UVpNSTdqVF9MSHhYR2YwMU1yVnhTTTA?oc=5", srcName:"연합뉴스TV", yt:"https://www.youtube.com/results?search_query=%ED%95%9C%C2%B7%EB%A9%95%EC%8B%9C%EC%BD%94%2C%20%EA%B2%BD%EC%A0%9C%ED%98%91%EB%A0%A5%20%EA%B0%95%ED%99%94%E2%80%A6%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%20%ED%8F%AC%EB%9F%BC%EB%8F%84%20%EA%B0%9C%EC%B5%9C" }
     ]},
   { key:"world", name:"국제", en:"World", color:"#ef4444",
     items:[
-      { h:"국제무대 인정 '철도여행'...탄소 감축·지역 상생", b:"YTN · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiXkFVX3lxTE16ek5xUU56ZjZjX0ZRalZPRTQzeEVlTmhuT2RYMFVoZWhLWTNnYl90WFlJemRWR0ExbVdtQmRwQ2xsTWdwTEpEX1Vzbm9ORUlkakpuNkN0aVJqVXVkUmc?oc=5", srcName:"YTN", yt:"https://www.youtube.com/results?search_query=%EA%B5%AD%EC%A0%9C%EB%AC%B4%EB%8C%80%20%EC%9D%B8%EC%A0%95%20%27%EC%B2%A0%EB%8F%84%EC%97%AC%ED%96%89%27...%ED%83%84%EC%86%8C%20%EA%B0%90%EC%B6%95%C2%B7%EC%A7%80%EC%97%AD%20%EC%83%81%EC%83%9D" },
-      { h:"’계영 예선 선수 메달 미지급’ 나고야 아시안게임 조직위, 국제 규정 무시 논란", b:"yonhapnewstv.co.kr · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9GM21jNEdtNVI3bjd6bkIyblNmb0tFWkJUSHYxMk9iQ1U4ckd1X0pWV3FZaWlQYUdDYk9SQXlCMUJDSFFhSHlzdS1UWmV1aThyRjZsdC0tSkVxdFVteUZUS3M2RERuNUk?oc=5", srcName:"yonhapnewstv.co.kr", yt:"https://www.youtube.com/results?search_query=%E2%80%99%EA%B3%84%EC%98%81%20%EC%98%88%EC%84%A0%20%EC%84%A0%EC%88%98%20%EB%A9%94%EB%8B%AC%20%EB%AF%B8%EC%A7%80%EA%B8%89%E2%80%99%20%EB%82%98%EA%B3%A0%EC%95%BC%20%EC%95%84%EC%8B%9C%EC%95%88%EA%B2%8C%EC%9E%84%20%EC%A1%B0%EC%A7%81%EC%9C%84%2C%20%EA%B5%AD%EC%A0%9C%20%EA%B7%9C%EC%A0%95%20%EB%AC%B4%EC%8B%9C%20%EB%85%BC%EB%9E%80" }
+      { h:"서초구, ‘매헌시민의숲’서 서울국제정원박람회 가을 행사", b:"아시아경제 · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiYEFVX3lxTE5ya294Q1Q2ZDRUQTdfSFlQWVQyUWk1YWI4bDYxTmZqR3dPQkpTcHBORDJLNFNDUjgxbzNCWWlQa3ZZSFV2eEtrQmdUaUJsRGctSVl2MzhiZVM4SlpHdnpVRw?oc=5", srcName:"아시아경제", yt:"https://www.youtube.com/results?search_query=%EC%84%9C%EC%B4%88%EA%B5%AC%2C%20%E2%80%98%EB%A7%A4%ED%97%8C%EC%8B%9C%EB%AF%BC%EC%9D%98%EC%88%B2%E2%80%99%EC%84%9C%20%EC%84%9C%EC%9A%B8%EA%B5%AD%EC%A0%9C%EC%A0%95%EC%9B%90%EB%B0%95%EB%9E%8C%ED%9A%8C%20%EA%B0%80%EC%9D%84%20%ED%96%89%EC%82%AC" },
+      { h:"이란: 시위 진압을 위해 반인도적 범죄를 설계한 자들을 국제 사법의 심판대에 세워 추가 학살을 막아야 한다", b:"국제앰네스티 한국지부 · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMi6AJBVV95cUxQbU5zeVZvRVhOdHUyOTZqOHZVb2pUVHRmMVB5aTRXSDVvUm5LeldtRnY2WVFDVzF0VFhfc3laYVdMX0NTSkt6VW9hV2hYcWc2ajdCZDFyX19YendtYl9GRHYzVUJtd1ZfU2trVDBkUWJOUHBTTW9JZC1JTVBTQ2hGZXdlVm95RlREaEpENkF2SW1yZWdFTmxCTkJDdE92YkdtVTJ6YVVtdl9nN3pXcGNXMDVEN0V2d25mM1FMd2hOdExqakdZV2hYZGxVSzQwUDNUdEdZMDV1a2ZGaVVUdFZLWktZTlVUYjFxdmRWb25DYmUwdThsNW9xRzVrWV8xa1RzMjEtNjctSE1Mb09YRUhXN1o4bnk0NldHQmJVR3dFT1BicmhyeVZRdjNiR2N5NXZsdU9KaHhMTEQ3cHVpNm1fUHphaEpaUTNsbmpfUUt4UmJXMF9FMGVPLThlcmdVYmJPQVVZVmRsNVA?oc=5", srcName:"국제앰네스티 한국지부", yt:"https://www.youtube.com/results?search_query=%EC%9D%B4%EB%9E%80%3A%20%EC%8B%9C%EC%9C%84%20%EC%A7%84%EC%95%95%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EB%B0%98%EC%9D%B8%EB%8F%84%EC%A0%81%20%EB%B2%94%EC%A3%84%EB%A5%BC%20%EC%84%A4%EA%B3%84%ED%95%9C%20%EC%9E%90%EB%93%A4%EC%9D%84%20%EA%B5%AD%EC%A0%9C%20%EC%82%AC%EB%B2%95%EC%9D%98%20%EC%8B%AC%ED%8C%90%EB%8C%80%EC%97%90%20%EC%84%B8%EC%9B%8C%20%EC%B6%94%EA%B0%80%20%ED%95%99%EC%82%B4%EC%9D%84%20%EB%A7%89%EC%95%84%EC%95%BC%20%ED%95%9C%EB%8B%A4" }
     ]},
   { key:"education", name:"교육", en:"Education", color:"#ec4899",
     items:[
-      { h:"[교원 안전 생태계] ④“창구만 바꿔선 안 돼”…학교민원, 기관이 끝까지 책임져야", b:"edpl.co.kr · 9월 27일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1XbHQ0RUhURTZhX2hmSzB2SlF0TVdYNi1HZW0taUxNMEw4QVRHOERiR2d1TnRlcV9QTWhQVUZaZFAzMWo1cGdINHlFT0dnOHBCRldhNkxPeVlQdV83YkszZFQyRVprNTA?oc=5", srcName:"edpl.co.kr", yt:"https://www.youtube.com/results?search_query=%5B%EA%B5%90%EC%9B%90%20%EC%95%88%EC%A0%84%20%EC%83%9D%ED%83%9C%EA%B3%84%5D%20%E2%91%A3%E2%80%9C%EC%B0%BD%EA%B5%AC%EB%A7%8C%20%EB%B0%94%EA%BF%94%EC%84%A0%20%EC%95%88%20%EB%8F%BC%E2%80%9D%E2%80%A6%ED%95%99%EA%B5%90%EB%AF%BC%EC%9B%90%2C%20%EA%B8%B0%EA%B4%80%EC%9D%B4%20%EB%81%9D%EA%B9%8C%EC%A7%80%20%EC%B1%85%EC%9E%84%EC%A0%B8%EC%95%BC" },
-      { h:"대구시교육청, 영호남 대안교육 학교 간 업무협약 체결 > 뉴스", b:"더코리아 · 9월 26일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMicEFVX3lxTE9xbU9VU3hmN0JhZ2JlUDFYVUhEcjFTUjlXbHVOYWhUcWVLV0tnTlBzRHlPY2o2SUw1QndKSTJCY3BhWFpyOXpkV1Y0eGVlOGM1bkZtWEREaVhuU0k4RFFGVHBubk4yeTBrbXRoeTkwWFA?oc=5", srcName:"더코리아", yt:"https://www.youtube.com/results?search_query=%EB%8C%80%EA%B5%AC%EC%8B%9C%EA%B5%90%EC%9C%A1%EC%B2%AD%2C%20%EC%98%81%ED%98%B8%EB%82%A8%20%EB%8C%80%EC%95%88%EA%B5%90%EC%9C%A1%20%ED%95%99%EA%B5%90%20%EA%B0%84%20%EC%97%85%EB%AC%B4%ED%98%91%EC%95%BD%20%EC%B2%B4%EA%B2%B0%20%3E%20%EB%89%B4%EC%8A%A4" }
+      { h:"스마트폰 청정학교 만든다…과의존 예방", b:"원주투데이 · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMicEFVX3lxTE1XTUlueTlic0h5Wl9vUzIwYTFFUjhrYTlIZ0pCenlpOFBkOXpvV3c5LXlwY19VREl4cUh3d3ZNNUE3Q2x6Qk04NXRBVlFVR0JzSlNySDE4YXZkLXVsMmlpOXNTUXlKQ1pydWhFS0gtME0?oc=5", srcName:"원주투데이", yt:"https://www.youtube.com/results?search_query=%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0%20%EC%B2%AD%EC%A0%95%ED%95%99%EA%B5%90%20%EB%A7%8C%EB%93%A0%EB%8B%A4%E2%80%A6%EA%B3%BC%EC%9D%98%EC%A1%B4%20%EC%98%88%EB%B0%A9" },
+      { h:"교과서 속 무형유산 장인이 교실로…서울교육청 전통예술교육", b:"연합뉴스 · 9월 28일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiYEFVX3lxTFBIaVY4bGxDcl95TmpfWHdsVFBBZ2l6T05VeVYyX3ZLMVBQakU2QmtmUGRpREo0eUJXOGdOcHdvMHpLc3NUelVYRmdwdnhUejFuUkNveS11bnlEV1hEdkhBYdIBYEFVX3lxTFBIaVY4bGxDcl95TmpfWHdsVFBBZ2l6T05VeVYyX3ZLMVBQakU2QmtmUGRpREo0eUJXOGdOcHdvMHpLc3NUelVYRmdwdnhUejFuUkNveS11bnlEV1hEdkhBYQ?oc=5", srcName:"연합뉴스", yt:"https://www.youtube.com/results?search_query=%EA%B5%90%EA%B3%BC%EC%84%9C%20%EC%86%8D%20%EB%AC%B4%ED%98%95%EC%9C%A0%EC%82%B0%20%EC%9E%A5%EC%9D%B8%EC%9D%B4%20%EA%B5%90%EC%8B%A4%EB%A1%9C%E2%80%A6%EC%84%9C%EC%9A%B8%EA%B5%90%EC%9C%A1%EC%B2%AD%20%EC%A0%84%ED%86%B5%EC%98%88%EC%88%A0%EA%B5%90%EC%9C%A1" }
     ]}
 ];
 
@@ -166,6 +166,6 @@ function setFilter(key){
 
 render();
 </script>
-<!-- news-build: {"date": "2026-09-27", "at": "09:16", "ok": 6, "stale": []} -->
+<!-- news-build: {"date": "2026-09-28", "at": "09:18", "ok": 6, "stale": []} -->
 </body>
 </html>
