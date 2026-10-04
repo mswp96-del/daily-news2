@@ -57,7 +57,7 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 <div class="wrap">
   <header class="top">
     <h1>📰 오늘의 뉴스</h1>
-    <div class="date" id="date">2026년 10월 3일 (토)</div>
+    <div class="date" id="date">2026년 10월 4일 (일)</div>
     <div class="sub">청소년 · AI · 과학 · 경제 · 국제 · 교육 — 매일 오전 7시 자동 업데이트</div>
   </header>
 
@@ -71,45 +71,45 @@ footer { text-align: center; color: #9ca3af; font-size: 12px; margin-top: 32px; 
 const SECTORS = [
   { key:"youth", name:"청소년", en:"Youth", color:"#f59e0b",
     items:[
-      { h:"광명시·제천시, 18년 우정 바탕으로 청소년·농특산물 교류 확대", b:"아시아경제 · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiYEFVX3lxTE9oQ2dfVmVQUlRRSXdHeGZhY0g4U0NPbklZLWFULWpMQlp4eXdBVmo1dVhGNVpBNEtXbGdaX1c5SVN6SlMzWjV6MnBiU0U4SWo5QUwwNWU4dXZKRmRTOUNLWg?oc=5", srcName:"아시아경제", yt:"https://www.youtube.com/results?search_query=%EA%B4%91%EB%AA%85%EC%8B%9C%C2%B7%EC%A0%9C%EC%B2%9C%EC%8B%9C%2C%2018%EB%85%84%20%EC%9A%B0%EC%A0%95%20%EB%B0%94%ED%83%95%EC%9C%BC%EB%A1%9C%20%EC%B2%AD%EC%86%8C%EB%85%84%C2%B7%EB%86%8D%ED%8A%B9%EC%82%B0%EB%AC%BC%20%EA%B5%90%EB%A5%98%20%ED%99%95%EB%8C%80" },
-      { h:"포항여명로타리클럽, 자선 바자회 수익 300만원 장애인·청소년 지원", b:"경북매일 · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiWkFVX3lxTE4takxyRGI4RkFSaE5pTGNlQ1lHaV9tTWVST0VMUklXVVZrN2FqSl9vMzdFWk44NDhsc3lNaXo1a0FISGNacjdkeHdTX19TcDFYUHhpeGRITV9vQQ?oc=5", srcName:"경북매일", yt:"https://www.youtube.com/results?search_query=%ED%8F%AC%ED%95%AD%EC%97%AC%EB%AA%85%EB%A1%9C%ED%83%80%EB%A6%AC%ED%81%B4%EB%9F%BD%2C%20%EC%9E%90%EC%84%A0%20%EB%B0%94%EC%9E%90%ED%9A%8C%20%EC%88%98%EC%9D%B5%20300%EB%A7%8C%EC%9B%90%20%EC%9E%A5%EC%95%A0%EC%9D%B8%C2%B7%EC%B2%AD%EC%86%8C%EB%85%84%20%EC%A7%80%EC%9B%90" }
+      { h:"울주 중부청소년수련관, 정재승 교수 초청 미래교육 강연", b:"v.daum.net · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiT0FVX3lxTE5ob2VySWxOR1BBTFljdWxUby16VkszUzRwV3JOY0lxSnpEeGtISEZNQlFZdTE4Y281WENVZ0JoeEtTcFhSWFFsazlmU3Btd2c?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%EC%9A%B8%EC%A3%BC%20%EC%A4%91%EB%B6%80%EC%B2%AD%EC%86%8C%EB%85%84%EC%88%98%EB%A0%A8%EA%B4%80%2C%20%EC%A0%95%EC%9E%AC%EC%8A%B9%20%EA%B5%90%EC%88%98%20%EC%B4%88%EC%B2%AD%20%EB%AF%B8%EB%9E%98%EA%B5%90%EC%9C%A1%20%EA%B0%95%EC%97%B0" },
+      { h:"서산시청소년상담복지센터, 청소년 딥페이크 폭력예방 전문지도자 양성", b:"cctoday.co.kr · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMibkFVX3lxTFBNNlZ6VU95Qk5YRGJOMWRZQ0psMlFKUm5Ub0tnZnloQTBadndnVlZ4Z1FsZ1Q0eUNxTlMtQTItaFowODFZVEQ4Q0lDSmwtZVBYVVJDRmRRS0gtemVQRzIwcXFQLVZUQTBCMF9Yck93?oc=5", srcName:"cctoday.co.kr", yt:"https://www.youtube.com/results?search_query=%EC%84%9C%EC%82%B0%EC%8B%9C%EC%B2%AD%EC%86%8C%EB%85%84%EC%83%81%EB%8B%B4%EB%B3%B5%EC%A7%80%EC%84%BC%ED%84%B0%2C%20%EC%B2%AD%EC%86%8C%EB%85%84%20%EB%94%A5%ED%8E%98%EC%9D%B4%ED%81%AC%20%ED%8F%AD%EB%A0%A5%EC%98%88%EB%B0%A9%20%EC%A0%84%EB%AC%B8%EC%A7%80%EB%8F%84%EC%9E%90%20%EC%96%91%EC%84%B1" }
     ]},
   { key:"ai", name:"AI", en:"인공지능", color:"#8b5cf6",
     items:[
-      { h:"[테크톡노트] AI는 왜 'SI'가 됐나…트럼프가 이름 바꾼 이유", b:"연합뉴스 · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiYEFVX3lxTE1OVElTNmZ6UkpYMEM1VmxXVFhzX2xrMTVNcjBCOF90YUVaSTZUaVhVTUplcy1zWE1KR1JJWUNnTzROcjE2QXkxdHlCUkZ4N0tYM01UZVpsWWNLb2EtUmZiU9IBYEFVX3lxTE1OVElTNmZ6UkpYMEM1VmxXVFhzX2xrMTVNcjBCOF90YUVaSTZUaVhVTUplcy1zWE1KR1JJWUNnTzROcjE2QXkxdHlCUkZ4N0tYM01UZVpsWWNLb2EtUmZiUw?oc=5", srcName:"연합뉴스", yt:"https://www.youtube.com/results?search_query=%5B%ED%85%8C%ED%81%AC%ED%86%A1%EB%85%B8%ED%8A%B8%5D%20AI%EB%8A%94%20%EC%99%9C%20%27SI%27%EA%B0%80%20%EB%90%90%EB%82%98%E2%80%A6%ED%8A%B8%EB%9F%BC%ED%94%84%EA%B0%80%20%EC%9D%B4%EB%A6%84%20%EB%B0%94%EA%BE%BC%20%EC%9D%B4%EC%9C%A0" },
-      { h:"대학들은 인공지능의 발전에 발맞춰 교육 방식을 바꿔야 한다.", b:"Vietnam.vn · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMigAFBVV95cUxOa3Jwc1AzcEF6LTR6OUtPQ1AtZjJHYUNiLTZHVXdweFkxTHpZTl9wdnNlU3dXRWtDbmE3aUFpa3FXalBIU0JlakNMUWtMMHl4RlBZUzMwYnBSX0tncEhPdlktN3M0b0Z5dEdJcTdTeG9RV0JDVGJxZHhqZWRETlFESQ?oc=5", srcName:"Vietnam.vn", yt:"https://www.youtube.com/results?search_query=%EB%8C%80%ED%95%99%EB%93%A4%EC%9D%80%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%9D%98%20%EB%B0%9C%EC%A0%84%EC%97%90%20%EB%B0%9C%EB%A7%9E%EC%B6%B0%20%EA%B5%90%EC%9C%A1%20%EB%B0%A9%EC%8B%9D%EC%9D%84%20%EB%B0%94%EA%BF%94%EC%95%BC%20%ED%95%9C%EB%8B%A4." }
+      { h:"'통제 벗어난 인공지능' 우려에…韓 AI 업계, '안전 확보' 총력전", b:"v.daum.net · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiT0FVX3lxTE04ZlR1OEEwWnlMS2ozTmVzRmRqNEpUSzV3aDR0T2V3TVlVRm5GQ2c3WFJzNmZIaUcxWWtxODRHZ1N4ckJhRHJRa2V1S01DX1k?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%27%ED%86%B5%EC%A0%9C%20%EB%B2%97%EC%96%B4%EB%82%9C%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%27%20%EC%9A%B0%EB%A0%A4%EC%97%90%E2%80%A6%E9%9F%93%20AI%20%EC%97%85%EA%B3%84%2C%20%27%EC%95%88%EC%A0%84%20%ED%99%95%EB%B3%B4%27%20%EC%B4%9D%EB%A0%A5%EC%A0%84" },
+      { h:"美재무 'AI 분야 안전한 가속 원해'…업계 자율 규제 강조", b:"연합뉴스 · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiYEFVX3lxTFBMdU1OMmp1b3U2UDdUbE5iWkszSWoycmZ2WF9YeUIxSTZVRFFteWlUQWx3TW5uOXRYb3dUNVBxbVBmQUQyLW5hR2hFZTVabWpISzZIRDJWLXdZZlZldUtOQtIBYEFVX3lxTFBMdU1OMmp1b3U2UDdUbE5iWkszSWoycmZ2WF9YeUIxSTZVRFFteWlUQWx3TW5uOXRYb3dUNVBxbVBmQUQyLW5hR2hFZTVabWpISzZIRDJWLXdZZlZldUtOQg?oc=5", srcName:"연합뉴스", yt:"https://www.youtube.com/results?search_query=%E7%BE%8E%EC%9E%AC%EB%AC%B4%20%22AI%20%EB%B6%84%EC%95%BC%20%EC%95%88%EC%A0%84%ED%95%9C%20%EA%B0%80%EC%86%8D%20%EC%9B%90%ED%95%B4%22%E2%80%A6%EC%97%85%EA%B3%84%20%EC%9E%90%EC%9C%A8%20%EA%B7%9C%EC%A0%9C%20%EA%B0%95%EC%A1%B0" }
     ]},
   { key:"science", name:"과학", en:"Science", color:"#0ea5e9",
     items:[
-      { h:"한의학연, 한의뇌신경과학연구센터 개소…뇌과학 연구 본격화 > 뉴스", b:"한의신문 · 10월 2일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMickFVX3lxTFBpcENSYjJfMHhkNjdsTDZteERFOE5sYkxfSnJOZkdnNDVudWlqRGl0OENoSGpibUEwQVVic2RxR0FJN0MwUS05bV83dTNYaEkyaWk3TVJkT1F2MTRwZFNyX2oxMFdWX29wcWVMT3pObG1jQQ?oc=5", srcName:"한의신문", yt:"https://www.youtube.com/results?search_query=%ED%95%9C%EC%9D%98%ED%95%99%EC%97%B0%2C%20%ED%95%9C%EC%9D%98%EB%87%8C%EC%8B%A0%EA%B2%BD%EA%B3%BC%ED%95%99%EC%97%B0%EA%B5%AC%EC%84%BC%ED%84%B0%20%EA%B0%9C%EC%86%8C%E2%80%A6%EB%87%8C%EA%B3%BC%ED%95%99%20%EC%97%B0%EA%B5%AC%20%EB%B3%B8%EA%B2%A9%ED%99%94%20%3E%20%EB%89%B4%EC%8A%A4" },
-      { h:"아모레퍼시픽, IFSCC서 AI·디지털 기반 피부과학 연구 공개", b:"인더스트리뉴스 · 10월 2일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMickFVX3lxTE5DSVhJSmpNa0VDYjhzUl96ZFp3MV8waVVaT2UyQnZNQXlBaEtoQ0VBN3MtdVRwTkk0Y1Fwb1Y3VUZhbnk0X09NM05PUjBSVDFFTG85bnFoM0ExWHVoZ0F3ZUxiSFQ5YTV3M0t4Ml9vYS1UQQ?oc=5", srcName:"인더스트리뉴스", yt:"https://www.youtube.com/results?search_query=%EC%95%84%EB%AA%A8%EB%A0%88%ED%8D%BC%EC%8B%9C%ED%94%BD%2C%20IFSCC%EC%84%9C%20AI%C2%B7%EB%94%94%EC%A7%80%ED%84%B8%20%EA%B8%B0%EB%B0%98%20%ED%94%BC%EB%B6%80%EA%B3%BC%ED%95%99%20%EC%97%B0%EA%B5%AC%20%EA%B3%B5%EA%B0%9C" }
+      { h:"[표지로 읽는 과학] '남성의 또다른 버전' 아닌 여성을 조망하다", b:"DongA Science · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiVEFVX3lxTE83cTlLTVpLeGZqbUloRHJDQzZSZ2ZCWXFZSXpINHFDckpqWUlKZzlFbzVuRnk4X0VIZFZhV3FpMFZ0Rl9SX01IVTVQNmJjNVhQLWoxSw?oc=5", srcName:"DongA Science", yt:"https://www.youtube.com/results?search_query=%5B%ED%91%9C%EC%A7%80%EB%A1%9C%20%EC%9D%BD%EB%8A%94%20%EA%B3%BC%ED%95%99%5D%20%27%EB%82%A8%EC%84%B1%EC%9D%98%20%EB%98%90%EB%8B%A4%EB%A5%B8%20%EB%B2%84%EC%A0%84%27%20%EC%95%84%EB%8B%8C%20%EC%97%AC%EC%84%B1%EC%9D%84%20%EC%A1%B0%EB%A7%9D%ED%95%98%EB%8B%A4" },
+      { h:"최창 국방과학연구회장, 3·8민주의거기념사업회서 ‘자주국방에서 K-방산까지’ 강연", b:"프리진뉴스 · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMib0FVX3lxTE1sSlpmMnZ1N3dqZmFlSVdUWmxIU0xJRUQtNVBBdmJXZmNYRExnaUJZOFBsSVJEZ1NrRW1rSDhVRHVXOG5OeGo0M0FqOVE3LVkzVm81em9md05LeVF5NmlUUGJ3VW5Ba2VIQ1NSOExxZw?oc=5", srcName:"프리진뉴스", yt:"https://www.youtube.com/results?search_query=%EC%B5%9C%EC%B0%BD%20%EA%B5%AD%EB%B0%A9%EA%B3%BC%ED%95%99%EC%97%B0%EA%B5%AC%ED%9A%8C%EC%9E%A5%2C%203%C2%B78%EB%AF%BC%EC%A3%BC%EC%9D%98%EA%B1%B0%EA%B8%B0%EB%85%90%EC%82%AC%EC%97%85%ED%9A%8C%EC%84%9C%20%E2%80%98%EC%9E%90%EC%A3%BC%EA%B5%AD%EB%B0%A9%EC%97%90%EC%84%9C%20K-%EB%B0%A9%EC%82%B0%EA%B9%8C%EC%A7%80%E2%80%99%20%EA%B0%95%EC%97%B0" }
     ]},
   { key:"economy", name:"경제", en:"Economy", color:"#10b981",
     items:[
-      { h:"[미스터리경제] 조심하랬더니 오픈런…'인싸 상어' 부캉이의 비밀 (영상)", b:"v.daum.net · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiT0FVX3lxTFBnRXZYZGE0bTVLWUFJMmNfTFVSbWZvVDZMaTlGVTJwdjU0U3lzcDZpcUFIQmpLUTlzSkJUN012cXlSeDFQUjBrMm5EUzhQbXM?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%5B%EB%AF%B8%EC%8A%A4%ED%84%B0%EB%A6%AC%EA%B2%BD%EC%A0%9C%5D%20%EC%A1%B0%EC%8B%AC%ED%95%98%EB%9E%AC%EB%8D%94%EB%8B%88%20%EC%98%A4%ED%94%88%EB%9F%B0%E2%80%A6%27%EC%9D%B8%EC%8B%B8%20%EC%83%81%EC%96%B4%27%20%EB%B6%80%EC%BA%89%EC%9D%B4%EC%9D%98%20%EB%B9%84%EB%B0%80%20%28%EC%98%81%EC%83%81%29" },
-      { h:"[다음주 경제] 경제부처 국정감사 개막…은행권 해킹·세제 개편 등 쟁점", b:"매일경제 마켓 · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiUkFVX3lxTE44WkFZR3VTWmtUZzFHTGN5UVhGMkpfZmlOZ0JaUkVPdm9WYUpFZDVJa3ExZXFValVQZXlfNVZoMUYxUDVaajJJWEtFMDNvdW9OdGc?oc=5", srcName:"매일경제 마켓", yt:"https://www.youtube.com/results?search_query=%5B%EB%8B%A4%EC%9D%8C%EC%A3%BC%20%EA%B2%BD%EC%A0%9C%5D%20%EA%B2%BD%EC%A0%9C%EB%B6%80%EC%B2%98%20%EA%B5%AD%EC%A0%95%EA%B0%90%EC%82%AC%20%EA%B0%9C%EB%A7%89%E2%80%A6%EC%9D%80%ED%96%89%EA%B6%8C%20%ED%95%B4%ED%82%B9%C2%B7%EC%84%B8%EC%A0%9C%20%EA%B0%9C%ED%8E%B8%20%EB%93%B1%20%EC%9F%81%EC%A0%90" }
+      { h:"'외화내빈' 한국 경제...실질임금·소비 동반 감소", b:"YTN · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMib0FVX3lxTE1ULThpbXJfMXBkLUZBT1k0blJQU0NrSmtpRUFjeTlZZDM2RHloUWVWbS1iSzVBanBqemxqWlE0cjBCaGw1YkxkUWlFVEY5aHFyNm1zNDlkNzNWTnlPa3VkNS01NjNYX2J4X2NnN3d0Zw?oc=5", srcName:"YTN", yt:"https://www.youtube.com/results?search_query=%27%EC%99%B8%ED%99%94%EB%82%B4%EB%B9%88%27%20%ED%95%9C%EA%B5%AD%20%EA%B2%BD%EC%A0%9C...%EC%8B%A4%EC%A7%88%EC%9E%84%EA%B8%88%C2%B7%EC%86%8C%EB%B9%84%20%EB%8F%99%EB%B0%98%20%EA%B0%90%EC%86%8C" },
+      { h:"국민의힘 장외집회 “경제도 안보도 지옥”…김민석 “총선 주전장은 낙동강”", b:"KBS 뉴스 · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiW0FVX3lxTE1hNW5FV19majZqb3hrTDdQTHZIQTRRZHA5YjY1dDZsQ1VSTXBfQTNYQ1I0NWpVVHBlQUktUTNrT3VOVEJUVjlWN19UT3o0VG1PcEEyZDVCdWFQVTA?oc=5", srcName:"KBS 뉴스", yt:"https://www.youtube.com/results?search_query=%EA%B5%AD%EB%AF%BC%EC%9D%98%ED%9E%98%20%EC%9E%A5%EC%99%B8%EC%A7%91%ED%9A%8C%20%E2%80%9C%EA%B2%BD%EC%A0%9C%EB%8F%84%20%EC%95%88%EB%B3%B4%EB%8F%84%20%EC%A7%80%EC%98%A5%E2%80%9D%E2%80%A6%EA%B9%80%EB%AF%BC%EC%84%9D%20%E2%80%9C%EC%B4%9D%EC%84%A0%20%EC%A3%BC%EC%A0%84%EC%9E%A5%EC%9D%80%20%EB%82%99%EB%8F%99%EA%B0%95%E2%80%9D" }
     ]},
   { key:"world", name:"국제", en:"World", color:"#ef4444",
     items:[
-      { h:"국제유가, G7 비축유 방출 합의에 하락…WTI 1.9%↓", b:"연합뉴스 · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiW0FVX3lxTE9LM2RLMEhKRkplOHR6N3dRZXlkaG9naDRUSk52OExZeG1rTDVyREk5OE4wdGRGMVBnM1NTdFJIMVRhNS1BU2xHb1VyWGF1bUJqWVRvbE12dERGcVHSAWBBVV95cUxPcUc0NjkzX3Q0OGFNVVR6ZVQ5MkpFM1pRb19ESnJsckpydWJhTWpNbEN5U0pRNEhubnZnTmZmUWdOUlhiT2RnV0JKWnNlRnJSMC1vcHRXdGRyRjZqMkdFQUw?oc=5", srcName:"연합뉴스", yt:"https://www.youtube.com/results?search_query=%EA%B5%AD%EC%A0%9C%EC%9C%A0%EA%B0%80%2C%20G7%20%EB%B9%84%EC%B6%95%EC%9C%A0%20%EB%B0%A9%EC%B6%9C%20%ED%95%A9%EC%9D%98%EC%97%90%20%ED%95%98%EB%9D%BD%E2%80%A6WTI%201.9%25%E2%86%93" },
-      { h:"국제유가 하락…G7 비축유 1억배럴 방출·첫 20일 디젤 집중 공급", b:"뉴스1 · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9yTDZmVFFPV1o3Nkk1d3Z6WnZNdjNHZFc4TmkyM2pzdnFyTGNXX250OWFYQlM1TWsxWl9LZldlMFNGV3dNbkdmTUZGbTk2TDhXa0RMYjBfdTh4OU5Fb1dtNDFXd0QxVVXSAWxBVV95cUxOTG95TlRod1ROZzNwV29LTE44cF9zdGRXZlFjbUZNRFg2bFFXSzdwaWhDaUVvMjJLdkdYcHg1X1psQnJIMWFVRGxXNkJjVVYzNGpnanNWX2ZSS3ZDYTNvR1lFbV9ybFhxck84ejI?oc=5", srcName:"뉴스1", yt:"https://www.youtube.com/results?search_query=%EA%B5%AD%EC%A0%9C%EC%9C%A0%EA%B0%80%20%ED%95%98%EB%9D%BD%E2%80%A6G7%20%EB%B9%84%EC%B6%95%EC%9C%A0%201%EC%96%B5%EB%B0%B0%EB%9F%B4%20%EB%B0%A9%EC%B6%9C%C2%B7%EC%B2%AB%2020%EC%9D%BC%20%EB%94%94%EC%A0%A4%20%EC%A7%91%EC%A4%91%20%EA%B3%B5%EA%B8%89" }
+      { h:"국제행사 경험 많다더니…부실 논란 터진 日 아시안게임[시사쇼]", b:"v.daum.net · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiT0FVX3lxTE5DbXR2enprOWQxYWVfeG1pYVQyUnRuNVhzV3JtckZDaF93VmxlcERJc3oyTF9mQWxsRDdDNElRUlYyQnNWc2FuZlFObWZSSlE?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%EA%B5%AD%EC%A0%9C%ED%96%89%EC%82%AC%20%EA%B2%BD%ED%97%98%20%EB%A7%8E%EB%8B%A4%EB%8D%94%EB%8B%88%E2%80%A6%EB%B6%80%EC%8B%A4%20%EB%85%BC%EB%9E%80%20%ED%84%B0%EC%A7%84%20%E6%97%A5%20%EC%95%84%EC%8B%9C%EC%95%88%EA%B2%8C%EC%9E%84%5B%EC%8B%9C%EC%82%AC%EC%87%BC%5D" },
+      { h:"'세계경주포럼' 8∼9일 개최…경주를 '문화의 다보스'로 키운다", b:"매일경제 마켓 · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiUkFVX3lxTE9sdHRiTm9BMTZLbzJlamJiaEY4akNpZHVtN1B2WEVoaUlmdm9XQ2R2aWppVHpMUmlCWlFMMkRjUGZac1FqRjVJbm5pWVFmbGQtSnc?oc=5", srcName:"매일경제 마켓", yt:"https://www.youtube.com/results?search_query=%27%EC%84%B8%EA%B3%84%EA%B2%BD%EC%A3%BC%ED%8F%AC%EB%9F%BC%27%208%E2%88%BC9%EC%9D%BC%20%EA%B0%9C%EC%B5%9C%E2%80%A6%EA%B2%BD%EC%A3%BC%EB%A5%BC%20%27%EB%AC%B8%ED%99%94%EC%9D%98%20%EB%8B%A4%EB%B3%B4%EC%8A%A4%27%EB%A1%9C%20%ED%82%A4%EC%9A%B4%EB%8B%A4" }
     ]},
   { key:"education", name:"교육", en:"Education", color:"#ec4899",
     items:[
-      { h:"한글학교 교육, 어떻게 달라져야 하나…전문가들, 머리맞댄다", b:"재외동포신문 · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMia0FVX3lxTE9WRVU0WlBhdVdVc1lLTFdFM1RNTTFTbE5PSF9RU3pPYVpXZmlkZlJIempuSE1ZbnNXelp4LUxHbDlUZDJxUXZGWGdqdEZUZFJPTV93TnFYWm5NWU1zVXdNeDNoUG9uUzR3bmdv?oc=5", srcName:"재외동포신문", yt:"https://www.youtube.com/results?search_query=%ED%95%9C%EA%B8%80%ED%95%99%EA%B5%90%20%EA%B5%90%EC%9C%A1%2C%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EB%8B%AC%EB%9D%BC%EC%A0%B8%EC%95%BC%20%ED%95%98%EB%82%98%E2%80%A6%EC%A0%84%EB%AC%B8%EA%B0%80%EB%93%A4%2C%20%EB%A8%B8%EB%A6%AC%EB%A7%9E%EB%8C%84%EB%8B%A4" },
-      { h:"무형유산 전수교육학교 평가…국가유산청, 위원 7명 위촉", b:"퍼블릭타임스 · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
-        src:"https://news.google.com/rss/articles/CBMiakFVX3lxTFBOLVRpSnV0TGRqY3hjRzRRTy1JT2xDc1RMN1A1LUJIMjN0ckcxQ1dGTHdqUGdJU0pYM3c1Q1pVT0hqSEZOY2c5VWYyaUg1ZWpsSklINEhjalNqNFU1SlZnZXpFdTNMTHVhc2fSAW5BVV95cUxPMTdZMkVwanUzTFlzdzhLYnFhTWRxcFl4NWtPb2xDWGZvUlpneXhlOUxDcTY2V2xObkJWcG16ZGRDM2RmYWdaa1JOVDF3TnVtbGRXOUFuSlJFQ2JnYzVIRVNDNU5hU3UxWThqaHVEUQ?oc=5", srcName:"퍼블릭타임스", yt:"https://www.youtube.com/results?search_query=%EB%AC%B4%ED%98%95%EC%9C%A0%EC%82%B0%20%EC%A0%84%EC%88%98%EA%B5%90%EC%9C%A1%ED%95%99%EA%B5%90%20%ED%8F%89%EA%B0%80%E2%80%A6%EA%B5%AD%EA%B0%80%EC%9C%A0%EC%82%B0%EC%B2%AD%2C%20%EC%9C%84%EC%9B%90%207%EB%AA%85%20%EC%9C%84%EC%B4%89" }
+      { h:"동덕여대, 40~80세 시니어모델과정 수강생 모집", b:"shinailbo.co.kr · 10월 3일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMicEFVX3lxTE1ac0UyUFBoeEI3RmhibWlCcU1TdFU4RXdCNUpySFZmVkNBRy0zRGhyTjF5bFNYYVRPcEFvd3hDcUFib0ZfaUFWUVR3RlB5RWtSemlpX0xXVzJKZWg4eG5DY2tldzQwanlnb0pnR2k3T3M?oc=5", srcName:"shinailbo.co.kr", yt:"https://www.youtube.com/results?search_query=%EB%8F%99%EB%8D%95%EC%97%AC%EB%8C%80%2C%2040~80%EC%84%B8%20%EC%8B%9C%EB%8B%88%EC%96%B4%EB%AA%A8%EB%8D%B8%EA%B3%BC%EC%A0%95%20%EC%88%98%EA%B0%95%EC%83%9D%20%EB%AA%A8%EC%A7%91" },
+      { h:"강남 3구 일반고생, 작년에만 816명 학교 떠나…고1이 58%", b:"v.daum.net · 10월 4일 보도. 자세한 내용은 출처 링크에서 확인하세요.",
+        src:"https://news.google.com/rss/articles/CBMiT0FVX3lxTE1vLXhRRjRoMU4ySmtCeWRQYTd4YWcxajFwQzRsYWNIOFNoaDNsRDI0YUE4QUxXMFNLTWtLRXVMWWN1UmV1SVYyT19jMk1MeEE?oc=5", srcName:"v.daum.net", yt:"https://www.youtube.com/results?search_query=%EA%B0%95%EB%82%A8%203%EA%B5%AC%20%EC%9D%BC%EB%B0%98%EA%B3%A0%EC%83%9D%2C%20%EC%9E%91%EB%85%84%EC%97%90%EB%A7%8C%20816%EB%AA%85%20%ED%95%99%EA%B5%90%20%EB%96%A0%EB%82%98%E2%80%A6%EA%B3%A01%EC%9D%B4%2058%25" }
     ]}
 ];
 
@@ -166,6 +166,6 @@ function setFilter(key){
 
 render();
 </script>
-<!-- news-build: {"date": "2026-10-03", "at": "09:56", "ok": 6, "stale": []} -->
+<!-- news-build: {"date": "2026-10-04", "at": "09:21", "ok": 6, "stale": []} -->
 </body>
 </html>
