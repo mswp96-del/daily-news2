@@ -288,6 +288,12 @@ function toSec(d){
   const p = d.split(":").map(Number);
   return p.length === 3 ? p[0]*3600 + p[1]*60 + p[2] : p[0]*60 + p[1];
 }
+function newestFirst(a,b){
+  // 목록에 들어온 날짜 최신순, 같은 날이면 노션 페이지 id(생성 순서) 최신순
+  const d = (b.a || "").localeCompare(a.a || "");
+  if(d) return d;
+  return (b.i || "").localeCompare(a.i || "");
+}
 function isNew(v){
   const base = new Date(SYNCED_AT.slice(0,10) + "T00:00:00");
   const added = new Date(v.a + "T00:00:00");
@@ -328,11 +334,11 @@ function render(){
   const out = [];
 
   if(active === "전체" && !q){
-    const fresh = VIDEOS.filter(isNew).sort((a,b) => b.a.localeCompare(a.a));
+    const fresh = VIDEOS.filter(isNew).sort(newestFirst);
     if(fresh.length) out.push(section("최근 추가", "#B08D57", fresh, "최근 " + NEW_DAYS + "일 안에 목록에 들어온 영상입니다."));
   }
   CATS.forEach(c => {
-    const items = pool.filter(v => v.c === c.k).sort((a,b) => toSec(a.d) - toSec(b.d));
+    const items = pool.filter(v => v.c === c.k).sort(newestFirst);
     if(items.length) out.push(section(c.label, c.color, items));
   });
 
