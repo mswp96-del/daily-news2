@@ -27,14 +27,25 @@ END = "/* ===== 영상 데이터 (자동 갱신 영역 끝) ===== */"
 
 # 분야 순서·색은 여기서만 관리한다. 노션 제목의 이모지는 무시하고 이름으로 매칭한다.
 CATS = [
-    {"k": "AI",        "color": "#C25E4A"},
-    {"k": "로봇",      "color": "#B08D57"},
-    {"k": "과학",      "color": "#3E7C59"},
-    {"k": "강의",      "color": "#3F6FA8"},
-    {"k": "공부법",    "color": "#5B8C5A"},
-    {"k": "뇌과학",    "color": "#C79A2E"},
-    {"k": "시사·뉴스", "color": "#B34A3F"},
-    {"k": "자동화",    "color": "#6E6A63"},
+    {"k": "AI 미래·전망",      "color": "#C25E4A"},
+    {"k": "AI 활용·도구",      "color": "#D07A4E"},
+    {"k": "AI 윤리·안전·정책", "color": "#A64B3C"},
+    {"k": "AI 콘텐츠·SF 영상", "color": "#9A5B8F"},
+    {"k": "휴머노이드 로봇",   "color": "#B08D57"},
+    {"k": "산업·서비스 로봇",  "color": "#8F7A4A"},
+    {"k": "인체·생명과학",     "color": "#3E7C59"},
+    {"k": "우주·천문",         "color": "#3B5B8C"},
+    {"k": "물리·화학·공학",    "color": "#2F8C7A"},
+    {"k": "고고학·역사 미스터리", "color": "#8C6A3E"},
+    {"k": "지구·환경",         "color": "#4E8A3F"},
+    {"k": "뇌과학·심리",       "color": "#C79A2E"},
+    {"k": "공부법",            "color": "#5B8C5A"},
+    {"k": "말하기·자기계발",   "color": "#B8793A"},
+    {"k": "강의·교육",         "color": "#3F6FA8"},
+    {"k": "일자리·미래 역량",  "color": "#B34A3F"},
+    {"k": "산업·경제",         "color": "#7A5C9E"},
+    {"k": "자동화",            "color": "#6E6A63"},
+    {"k": "제목 미확인",       "color": "#8A8175"},
 ]
 CAT_KEYS = [c["k"] for c in CATS]
 
@@ -59,7 +70,7 @@ def save_json(data):
 
 
 def unescape_md(s):
-    return re.sub(r"\\([\[\]|*_`#()])", r"\1", s).strip()
+    return re.sub(r"\\([\[\]|*_`#()~])", r"\1", s).strip()
 
 
 LINE_RE = re.compile(
@@ -77,7 +88,8 @@ def parse_notion_md(text):
         line = raw.rstrip()
         if line.startswith("## "):
             name = re.sub(r"[^\w가-힣·]+", "", line[3:])
-            cat = next((k for k in CAT_KEYS if k.replace("·", "") == name.replace("·", "")), None)
+            norm = lambda s: re.sub(r"[\s·]", "", s)
+            cat = next((k for k in CAT_KEYS if norm(k) == norm(name)), None)
             if cat is None:
                 # 노션에 새 분야가 생기면 그대로 받아들인다 (색은 render 때 회색)
                 cat = line[3:].strip()
